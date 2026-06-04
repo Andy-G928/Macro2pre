@@ -1,0 +1,38 @@
+# Personal task notes and source template archive
+taskmacropre.md
+*.zip
+
+# Local Chinese paper explanation outputs
+paper_explanation_ngai_pissarides/
+
+# LaTeX build artifacts
+*.aux
+*.bbl
+*.bcf
+*.blg
+*.fdb_latexmk
+*.fls
+*.log
+*.nav
+*.out
+*.run.xml
+*.snm
+*.synctex.gz
+*.toc
+*.vrb
+*.xdv
+
+# Local visual review outputs
+lingnan_beamer_template/review/
+
+# MinerU conversion internals
+paper/*-mineru-md/*.json
+paper/*-mineru-md/*_origin.pdf
+paper/*-mineru-md/images/
+
+# OS/editor noise
+.DS_Store
+Thumbs.db
+desktop.ini
+.vscode/
+.idea/

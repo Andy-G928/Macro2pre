@@ -1,0 +1,185 @@
+\section{Extensions and Discussion}
+
+\begin{frame}{Extension 1: Intermediate Goods}
+  \small
+  Many sectors sell output to firms as well as households. The extension lets
+  goods be used as intermediate inputs.
+
+  \vspace{0.10cm}
+  \begin{block}{Modified production function}
+    \begin{equation*}
+      F^i=A_i n_i k_i^\alpha q_i^\beta,\qquad
+      \alpha,\beta>0,\quad \alpha+\beta<1 .
+    \end{equation*}
+  \end{block}
+
+  \begin{alertblock}{Balanced-growth restriction}
+    The intermediate-input aggregator must be Cobb-Douglas:
+    \[
+      \eta=1.
+    \]
+  \end{alertblock}
+
+  \vspace{0.10cm}
+  \slidecite{The paper notes that U.S. input-output data show large intermediate-use shares across sectors.}
+\end{frame}
+
+\begin{frame}{Intermediate Goods: Employment Shares}
+  \small
+  \begin{block}{Consumption-sector employment}
+    \begin{equation*}
+      n_i=\frac{x_i}{X}\left(\frac{c}{y}\right)+\varphi_i\beta,
+      \qquad i\neq m .
+    \end{equation*}
+  \end{block}
+
+  \begin{alertblock}{Manufacturing employment}
+    \begin{equation*}
+      n_m=
+      \left[
+      \frac{x_m}{X}\left(\frac{c}{y}\right)+\varphi_m\beta
+      \right]
+      +\left(1-\beta-\frac{c}{y}\right).
+    \end{equation*}
+  \end{alertblock}
+
+  \vspace{0.10cm}
+  \begin{itemize}
+    \item The structural-change mechanism still applies to the consumption component.
+    \item The intermediate-input term $\varphi_i\beta$ is a constant employment floor.
+    \item In the limit, intermediate-good producers can retain employment even if
+      their final-consumption component vanishes.
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{Extension 2: Many Capital Goods}
+  \small
+  Instead of a single manufacturing capital good, suppose there are $\kappa$
+  capital-producing sectors aggregated into $G$.
+
+  \vspace{0.12cm}
+  \begin{block}{Relative employment across capital-goods sectors}
+    \begin{equation*}
+      \frac{n_{m_j}}{n_{m_i}}
+      =
+      \left(\frac{\xi_{m_j}}{\xi_{m_i}}\right)^\mu
+      \left(\frac{A_{m_i}}{A_{m_j}}\right)^{1-\mu}.
+    \end{equation*}
+    \begin{equation*}
+      \frac{\dot n_{m_j}}{n_{m_j}}-\frac{\dot n_{m_i}}{n_{m_i}}
+      =(1-\mu)(\gamma_{m_i}-\gamma_{m_j}).
+    \end{equation*}
+  \end{block}
+
+  \vspace{0.08cm}
+  The logic mirrors the baseline model, but the relevant substitution elasticity
+  is now $\mu$ inside the capital-goods aggregator.
+\end{frame}
+
+\begin{frame}{Many Capital Goods: Balanced-Growth Implication}
+  \small
+  \begin{alertblock}{Key result}
+    Multiple capital-producing sectors with different TFP growth rates can
+    coexist on an aggregate balanced growth path only if
+    \[
+      \mu=1.
+    \]
+  \end{alertblock}
+
+  \vspace{0.10cm}
+  \begin{itemize}
+    \item The aggregate capital-sector growth rate is a weighted average of
+      capital-sector TFP growth rates.
+    \item If $\mu\neq1$, the weights depend on relative productivity levels and
+      therefore change over time.
+    \item If $\mu=1$, the Cobb-Douglas aggregator fixes expenditure/input shares,
+      so the aggregate growth rate is constant.
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{Empirical Predictions}
+  \small
+  \begin{tabularx}{\textwidth}{@{}p{0.33\textwidth}X@{}}
+    \toprule
+    Sector type & Prediction when $\varepsilon<1$ \\
+    \midrule
+    Final consumption sectors
+      & Employment-share growth is negatively related to sectoral TFP growth and
+        positively related to relative price inflation. \\
+    Intermediate-goods intensive sectors
+      & The same force operates, but the constant intermediate-input term weakens
+        the clean linear relation. \\
+    Capital-goods intensive sectors
+      & If capital-goods aggregation is Cobb-Douglas, employment shares need not
+        have the same relation with relative TFP growth. \\
+    \bottomrule
+  \end{tabularx}
+
+  \vspace{0.30cm}
+  \begin{alertblock}{Useful empirical distinction}
+    The model predicts different labor-share dynamics depending on whether a
+    sector mainly supplies final consumption, intermediate inputs, or capital goods.
+  \end{alertblock}
+\end{frame}
+
+\begin{frame}{Strengths of the Paper}
+  \small
+  \begin{columns}[T,onlytextwidth]
+    \begin{column}{0.48\textwidth}
+      \begin{block}{Theoretical strengths}
+        \begin{itemize}
+          \item Clean separation between preferences and technologies.
+          \item Structural change generated without nonhomothetic preferences.
+          \item Aggregate dynamics reduce to a Ramsey benchmark under $\theta=1$.
+        \end{itemize}
+      \end{block}
+    \end{column}
+    \begin{column}{0.48\textwidth}
+      \begin{alertblock}{Interpretive strengths}
+        \begin{itemize}
+          \item Gives a precise version of Baumol's mechanism.
+          \item Explains why relative prices and employment can rise together.
+          \item Reconciles large nominal shifts with small real-share shifts.
+        \end{itemize}
+      \end{alertblock}
+    \end{column}
+  \end{columns}
+\end{frame}
+
+\begin{frame}{Limitations and Discussion Questions}
+  \small
+  \begin{itemize}
+    \item \focus{No nonhomotheticity}: the model intentionally abstracts from
+      income-elasticity channels that are important in other structural-change models.
+    \item \focus{Identical production shapes}: sectoral differences enter mainly
+      through TFP growth, not through capital intensity or fixed factors.
+    \item \focus{Balanced-growth knife edge}: exact coexistence requires $\theta=1$,
+      though the paper argues deviations may be quantitatively small.
+    \item \focus{Sector classification}: real industries often produce final,
+      intermediate, and capital goods at the same time.
+  \end{itemize}
+
+  \vspace{0.20cm}
+  \begin{alertblock}{Discussion prompt}
+    Is the low final-goods substitution elasticity more plausible at broad
+    sectoral levels than at detailed industry levels?
+  \end{alertblock}
+\end{frame}
+
+\begin{frame}{Main Takeaways}
+  \small
+  \begin{enumerate}
+    \item Unequal sectoral TFP growth changes relative prices.
+    \item CES demand converts relative price changes into expenditure-share changes.
+    \item If $\varepsilon<1$, labor moves toward sectors with lower TFP growth.
+    \item Aggregate balanced growth can coexist with this movement if $\theta=1$.
+    \item Intermediate inputs and multiple capital goods preserve the core idea
+      under Cobb-Douglas aggregation restrictions.
+  \end{enumerate}
+
+  \vspace{0.25cm}
+  \begin{alertblock}{Bottom line}
+    Structural change can be a permanent feature of sectoral allocation while
+    the aggregate economy still looks balanced.
+  \end{alertblock}
+\end{frame}

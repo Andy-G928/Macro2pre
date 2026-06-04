@@ -1,0 +1,48 @@
+\section{Appendix}
+
+\begin{frame}[label=appendixrelative]{Derivation Sketch: Relative Employment}
+  \small
+  Start from
+  \[
+    n_i=\frac{x_i}{X}\frac{c}{y},\qquad
+    x_i=\left(\frac{\omega_i}{\omega_m}\right)^\varepsilon
+      \left(\frac{A_m}{A_i}\right)^{1-\varepsilon}.
+  \]
+
+  For two consumption sectors $i,j\neq m$:
+  \begin{align*}
+    \frac{\dot n_i}{n_i}-\frac{\dot n_j}{n_j}
+      &=\frac{\dot x_i}{x_i}-\frac{\dot x_j}{x_j}\\
+      &=(1-\varepsilon)(\gamma_m-\gamma_i)
+        -(1-\varepsilon)(\gamma_m-\gamma_j)\\
+      &=(1-\varepsilon)(\gamma_j-\gamma_i).
+  \end{align*}
+
+  \vspace{0.10cm}
+  \hyperlink{relativeemployment}{\beamerbutton{Back}}
+\end{frame}
+
+\begin{frame}[label=appendixbalanced]{Why $\theta=1$ Removes the Aggregate Distortion}
+  \small
+  The aggregate Euler equation is
+  \[
+    \theta\frac{\dot c}{c}
+    =
+    (\theta-1)(\gamma_m-\gammabar)
+    +\alpha A_m k^{\alpha-1}-(\delta+\rho+\nu).
+  \]
+
+  During structural change, expenditure weights $x_i/X$ move, so
+  \[
+    \gammabar=\sum_i\frac{x_i}{X}\gamma_i
+  \]
+  generally changes over time.
+
+  \vspace{0.12cm}
+  \begin{alertblock}{Implication}
+    Exact balanced growth requires the time-varying term to disappear. Setting
+    $\theta=1$ makes $(\theta-1)(\gamma_m-\gammabar)=0$.
+  \end{alertblock}
+
+  \hyperlink{balancedgrowth}{\beamerbutton{Back}}
+\end{frame}

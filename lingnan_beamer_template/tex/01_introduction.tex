@@ -1,0 +1,148 @@
+\section{Question and Contribution}
+
+\begin{frame}{Central Question}
+  \begin{block}{What does the paper explain?}
+    Sectoral TFP grows at different rates. How does this generate long-run
+    shifts in employment shares, and can those shifts coexist with aggregate
+    balanced growth?
+  \end{block}
+
+  \vspace{0.15cm}
+  \begin{columns}[T,onlytextwidth]
+    \begin{column}{0.48\textwidth}
+      \begin{alertblock}{Sectoral facts}
+        \begin{itemize}
+          \item Employment shares move over long horizons.
+          \item Low-productivity-growth sectors become relatively expensive.
+          \item Nominal shares move more than real consumption shares.
+        \end{itemize}
+      \end{alertblock}
+    \end{column}
+    \begin{column}{0.48\textwidth}
+      \begin{block}{Aggregate facts}
+        \begin{itemize}
+          \item Output, consumption, and capital can grow together.
+          \item Aggregate ratios may remain roughly constant.
+          \item The goal is to reconcile reallocation with Kaldor facts.
+        \end{itemize}
+      \end{block}
+    \end{column}
+  \end{columns}
+
+  \vspace{0.12cm}
+  \slidecite{Source: Ngai and Pissarides, American Economic Review, 2007.}
+\end{frame}
+
+\begin{frame}{Structural Change Is Not Aggregate Noise}
+  \small
+  \begin{columns}[c,onlytextwidth]
+    \begin{column}{0.50\textwidth}
+      \begin{tikzpicture}[x=1cm,y=1cm]
+        \draw[->,thick] (0,0) -- (5.0,0) node[right] {\scriptsize time};
+        \draw[->,thick] (0,0) -- (0,3.2) node[above] {\scriptsize employment share};
+        \draw[darkred!80!black,very thick] (0.2,2.8) .. controls (1.5,2.1) and (3.0,0.9) .. (4.7,0.35);
+        \draw[black!65,very thick] (0.2,1.0) .. controls (1.4,2.2) and (2.8,2.3) .. (4.7,1.35);
+        \draw[lingnanred,very thick] (0.2,0.25) .. controls (1.8,0.55) and (3.4,1.25) .. (4.7,2.65);
+        \node[anchor=west] at (3.15,0.42) {\scriptsize agriculture};
+        \node[anchor=west] at (3.00,1.40) {\scriptsize manufacturing};
+        \node[anchor=west] at (3.15,2.48) {\scriptsize services};
+      \end{tikzpicture}
+    \end{column}
+    \begin{column}{0.48\textwidth}
+      \begin{itemize}
+        \item Kuznets and Maddison document a long-run shift from agriculture
+          toward manufacturing and services.
+        \item Baumol's cost disease predicts rising relative prices in
+          stagnant sectors.
+        \item Ngai and Pissarides emphasize a technological explanation:
+          unequal sectoral TFP growth is enough to move labor shares.
+      \end{itemize}
+    \end{column}
+  \end{columns}
+
+  \vspace{0.12cm}
+  \slidecite{Evidence discussed in the paper: Kuznets (1966), Maddison (1980), Baumol et al. (1985).}
+\end{frame}
+
+\begin{frame}{Position in the Literature}
+  \footnotesize
+  \begin{tabularx}{\textwidth}{@{}p{0.27\textwidth}X X@{}}
+    \toprule
+    Approach & Source of structural change & Relation to this paper \\
+    \midrule
+    Nonhomothetic preferences
+      & Different income elasticities change demand composition as income grows.
+      & This paper does not rely on Stone-Geary preferences or sector-specific income elasticities. \\
+    Technology-based explanation
+      & Different sectoral TFP growth rates change relative prices and expenditure shares.
+      & This is the paper's main mechanism under CES final goods and homothetic preferences. \\
+    Balanced-growth restrictions
+      & Preferences and technologies are often tied together by special parameter restrictions.
+      & Ngai and Pissarides keep preference and technology parameters largely separate. \\
+    \bottomrule
+  \end{tabularx}
+
+  \vspace{0.35cm}
+  \begin{alertblock}{One-sentence contribution}
+    If final goods are poor substitutes, labor moves toward low-TFP-growth
+    sectors; if intertemporal utility is logarithmic, this movement is
+    consistent with aggregate balanced growth.
+  \end{alertblock}
+\end{frame}
+
+\begin{frame}{Presentation Roadmap}
+  \small
+  \resizebox{\textwidth}{!}{%
+  \begin{tikzpicture}[
+    node distance=0.8cm,
+    box/.style={draw=darkred!80!black,rounded corners,thick,align=center,text width=0.18\textwidth,minimum height=1.05cm},
+    arr/.style={-{Latex[length=2mm]},thick,darkred!80!black}
+  ]
+    \node[box] (fact) {Facts\\sectoral shifts};
+    \node[box,right=of fact] (model) {Model\\CES goods + TFP gaps};
+    \node[box,right=of model] (mechanism) {Mechanism\\prices and labor shares};
+    \node[box,right=of mechanism] (growth) {Aggregate\\balanced growth};
+    \node[box,right=of growth] (extend) {Extensions\\inputs and capital goods};
+    \draw[arr] (fact) -- (model);
+    \draw[arr] (model) -- (mechanism);
+    \draw[arr] (mechanism) -- (growth);
+    \draw[arr] (growth) -- (extend);
+  \end{tikzpicture}
+  }
+
+  \vspace{0.45cm}
+  \begin{columns}[T,onlytextwidth]
+    \begin{column}{0.48\textwidth}
+      \begin{block}{First: structural change}
+        Derive how employment shares respond to relative prices and sectoral
+        TFP growth rates.
+      \end{block}
+    \end{column}
+    \begin{column}{0.48\textwidth}
+      \begin{block}{Then: aggregate growth}
+        Identify when structural change is compatible with constant aggregate
+        ratios.
+      \end{block}
+    \end{column}
+  \end{columns}
+\end{frame}
+
+\begin{frame}{Reading Priorities}
+  \small
+  \begin{enumerate}
+    \item \focus{Relative prices}: static efficiency gives
+      $p_i/p_m=A_m/A_i$, mapping TFP gaps into price movements.
+    \item \focus{Substitution elasticity}: the sign of $1-\varepsilon$
+      determines the direction of employment reallocation.
+    \item \focus{Aggregate balance}: structural change makes $\gammabar$
+      time-varying; $\theta=1$ removes this term from the Euler equation.
+    \item \focus{Robustness}: intermediate inputs and multiple capital goods
+      preserve the logic under Cobb-Douglas aggregation restrictions.
+  \end{enumerate}
+
+  \vspace{0.30cm}
+  \begin{alertblock}{Target takeaway}
+    A sector can absorb more employment precisely because it is technologically
+    stagnant, without forcing aggregate growth to become unbalanced.
+  \end{alertblock}
+\end{frame}

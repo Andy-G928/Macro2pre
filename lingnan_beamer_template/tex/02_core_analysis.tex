@@ -1,0 +1,167 @@
+\section{Baseline Model}
+
+\begin{frame}{Environment: Many Consumption Goods, One Capital-Goods Sector}
+  \small
+  \begin{columns}[T,onlytextwidth]
+    \begin{column}{0.47\textwidth}
+      \begin{block}{Sectoral structure}
+        \begin{itemize}
+          \item There are $m$ sectors.
+          \item Sectors $i=1,\ldots,m-1$ produce consumption goods only.
+          \item Sector $m$ is manufacturing.
+          \item Manufacturing produces both a final good and the capital good.
+        \end{itemize}
+      \end{block}
+    \end{column}
+    \begin{column}{0.49\textwidth}
+      \begin{alertblock}{Key modeling choices}
+        \begin{itemize}
+          \item Labor and capital move freely across sectors.
+          \item Production functions differ only in TFP levels and growth rates.
+          \item Preferences are homothetic CES, not nonhomothetic.
+        \end{itemize}
+      \end{alertblock}
+    \end{column}
+  \end{columns}
+
+  \vspace{0.15cm}
+  \begin{equation*}
+    U=\int_0^\infty e^{-\rho t}v(c_1,\ldots,c_m)\,dt .
+  \end{equation*}
+\end{frame}
+
+\begin{frame}{Resource Constraints}
+  \small
+  \begin{block}{Factor allocation}
+    \begin{equation*}
+      \sum_{i=1}^m n_i=1,\qquad
+      \sum_{i=1}^m n_i k_i=k .
+    \end{equation*}
+  \end{block}
+
+  \vspace{0.12cm}
+  \begin{columns}[T,onlytextwidth]
+    \begin{column}{0.48\textwidth}
+      \begin{block}{Consumption sectors}
+        \begin{equation*}
+          c_i=F^i(n_i k_i,n_i),\quad i\neq m .
+        \end{equation*}
+      \end{block}
+    \end{column}
+    \begin{column}{0.48\textwidth}
+      \begin{alertblock}{Manufacturing sector}
+        \begin{equation*}
+          \dot{k}=F^m(n_mk_m,n_m)-c_m-(\delta+\nu)k .
+        \end{equation*}
+      \end{alertblock}
+    \end{column}
+  \end{columns}
+
+  \vspace{0.18cm}
+  \footnotesize
+  Interpretation: non-manufacturing output is consumed immediately; manufacturing
+  output is split between current consumption and investment.
+\end{frame}
+
+\begin{frame}{Static Efficiency: TFP Gaps Become Relative Prices}
+  \small
+  \begin{block}{Sectoral technologies}
+    \begin{equation*}
+      F^i=A_i F(n_i k_i,n_i),\qquad
+      \dot{A}_i/A_i=\gamma_i .
+    \end{equation*}
+  \end{block}
+
+  \vspace{0.15cm}
+  \begin{alertblock}{Static efficiency implies}
+    \begin{equation*}
+      k_i=k,\qquad
+      \frac{p_i}{p_m}=\frac{v_i}{v_m}=\frac{A_m}{A_i},\quad \forall i .
+    \end{equation*}
+  \end{alertblock}
+
+  \vspace{0.12cm}
+  \begin{itemize}
+    \item Capital-labor ratios equalize because factor markets are frictionless.
+    \item A faster-growing sector becomes relatively cheaper over time.
+    \item This is the bridge from technology differences to demand reallocation.
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{CES Preferences: Two Elasticities}
+  \small
+  \begin{equation*}
+    v(c_1,\ldots,c_m)=\frac{\phi(c_1,\ldots,c_m)^{1-\theta}-1}{1-\theta},
+  \end{equation*}
+  \begin{equation*}
+    \phi=\left(\sum_{i=1}^m \omega_i c_i^{(\varepsilon-1)/\varepsilon}\right)^{\varepsilon/(\varepsilon-1)} .
+  \end{equation*}
+
+  \vspace{0.12cm}
+  \begin{columns}[T,onlytextwidth]
+    \begin{column}{0.48\textwidth}
+      \begin{block}{$\varepsilon$: substitution across goods}
+        Determines whether rising relative prices increase or reduce a
+        sector's expenditure and employment shares.
+      \end{block}
+    \end{column}
+    \begin{column}{0.48\textwidth}
+      \begin{alertblock}{$1/\theta$: intertemporal substitution}
+        Determines whether structural change can coexist with a balanced
+        aggregate path.
+      \end{alertblock}
+    \end{column}
+  \end{columns}
+\end{frame}
+
+\begin{frame}{Expenditure Ratio: The Key State for Sectoral Demand}
+  \small
+  \begin{block}{Consumption expenditure of sector $i$ relative to manufacturing}
+    \begin{equation*}
+      \frac{p_i c_i}{p_m c_m}
+      =
+      \left(\frac{\omega_i}{\omega_m}\right)^\varepsilon
+      \left(\frac{A_m}{A_i}\right)^{1-\varepsilon}
+      \equiv x_i .
+    \end{equation*}
+  \end{block}
+
+  \vspace{0.15cm}
+  \begin{columns}[T,onlytextwidth]
+    \begin{column}{0.48\textwidth}
+      \begin{alertblock}{If $\varepsilon<1$}
+        A relative price increase raises expenditure share because demand is
+        price inelastic.
+      \end{alertblock}
+    \end{column}
+    \begin{column}{0.48\textwidth}
+      \begin{block}{If $\varepsilon>1$}
+        A relative price increase lowers expenditure share because consumers
+        substitute away strongly.
+      \end{block}
+    \end{column}
+  \end{columns}
+\end{frame}
+
+\begin{frame}{Aggregate Variables in Manufacturing Units}
+  \small
+  \begin{equation*}
+    c\equiv\sum_{i=1}^m \frac{p_i}{p_m}c_i,\qquad
+    y\equiv\sum_{i=1}^m \frac{p_i}{p_m}F^i .
+  \end{equation*}
+
+  \vspace{0.12cm}
+  \begin{block}{Two useful simplifications}
+    \begin{equation*}
+      c=c_m X,\qquad y=A_m F(k,1),\qquad
+      X\equiv\sum_{i=1}^m x_i .
+    \end{equation*}
+  \end{block}
+
+  \vspace{0.12cm}
+  \begin{itemize}
+    \item $x_i/X$ is sector $i$'s consumption expenditure share.
+    \item $c/y$ is the economy-wide employment share used for consumption goods.
+    \item $1-c/y$ is the manufacturing labor share used to produce capital goods.
+  \end{itemize}
+\end{frame}

@@ -1,0 +1,115 @@
+\mode<presentation>
+
+% Modified from innertheme circles
+\useinnertheme{circles}
+
+% Cancel the navigation symbols on the right bottom
+\setbeamertemplate{navigation symbols}{}
+
+\setbeamertemplate{section in toc}[square]
+\setbeamertemplate{enumerate items}[default]
+\setbeamertemplate{blocks}[rounded]
+\setbeamertemplate{bibliography item}{\insertbiblabel}
+
+% Compact but readable vertical rhythm for math-heavy lecture slides.
+% Display math is often followed immediately by bullets, so keep the
+% post-display glue tight and let list spacing carry most of the separation.
+\newcommand{\lingnancompactspacing}{%
+  \setlength{\abovedisplayskip}{0.30em plus 0.10em minus 0.08em}%
+  \setlength{\belowdisplayskip}{0.14em plus 0.06em minus 0.04em}%
+  \setlength{\abovedisplayshortskip}{0.20em plus 0.08em minus 0.06em}%
+  \setlength{\belowdisplayshortskip}{0.12em plus 0.05em minus 0.04em}%
+}
+\g@addto@macro\normalsize{\lingnancompactspacing}
+\g@addto@macro\small{\lingnancompactspacing}
+\g@addto@macro\footnotesize{\lingnancompactspacing}
+\g@addto@macro\scriptsize{\lingnancompactspacing}
+\AtBeginDocument{\lingnancompactspacing}
+
+% If a nested list immediately follows display math, compensate for the list's
+% extra top glue while keeping ordinary formula spacing readable.
+\newif\iflingnanafterdisplay
+\AfterEndEnvironment{equation}{\global\lingnanafterdisplaytrue}
+\AfterEndEnvironment{equation*}{\global\lingnanafterdisplaytrue}
+\AfterEndEnvironment{align}{\global\lingnanafterdisplaytrue}
+\AfterEndEnvironment{align*}{\global\lingnanafterdisplaytrue}
+\pretocmd{\itemize}{%
+  \ifnum\@itemdepth>0
+    \iflingnanafterdisplay\vspace{-0.78em}\fi
+  \fi
+  \global\lingnanafterdisplayfalse
+}{}{}
+\pretocmd{\enumerate}{%
+  \ifnum\@enumdepth>0
+    \iflingnanafterdisplay\vspace{-0.78em}\fi
+  \fi
+  \global\lingnanafterdisplayfalse
+}{}{}
+
+\addtobeamertemplate{itemize/enumerate body begin}{%
+  \setlength{\topsep}{0.08em}%
+  \setlength{\partopsep}{0pt}%
+  \setlength{\itemsep}{0.15em}%
+  \setlength{\parsep}{0pt}%
+}{}
+\addtobeamertemplate{itemize/enumerate subbody begin}{%
+  \setlength{\topsep}{0pt}%
+  \setlength{\partopsep}{0pt}%
+  \setlength{\itemsep}{0.10em}%
+  \setlength{\parsep}{0pt}%
+}{}
+
+% Overlay setting
+\setbeamercovered{dynamic}
+
+\providecommand{\inserttitlepageinfo}{}
+\newcommand{\titlepageinfo}[1]{\renewcommand{\inserttitlepageinfo}{#1}}
+\providecommand{\inserttitlepagefooter}{}
+\newcommand{\titlepagefooter}[1]{\renewcommand{\inserttitlepagefooter}{#1}}
+
+% Title page without titlegraphic.
+\setbeamertemplate{title page}{
+  \begin{tikzpicture}[remember picture,overlay]
+    \fill[lingnangrey!30!white]
+      ([yshift=-1.15cm]current page.north west)
+      rectangle
+      ([yshift=-4.05cm]current page.north east);
+    \fill[darkred!80!black]
+      ([yshift=0.52cm]current page.south west)
+      rectangle
+      (current page.south east);
+    \ifx\inserttitlepageinfo\@empty
+    \else
+      \node[anchor=west,inner sep=0pt]
+        at ([xshift=1.0cm,yshift=-4.05cm]current page.north west)
+        {%
+          \begin{beamercolorbox}[wd=0.55\paperwidth,sep=0.55em,rounded=true]{block body}
+            \raggedright\small
+            \inserttitlepageinfo
+          \end{beamercolorbox}
+        };
+    \fi
+  \end{tikzpicture}
+
+  \vspace*{0.85cm}
+  \begin{flushleft}
+    {\usebeamerfont{title}\usebeamercolor[fg]{title}\inserttitle\par}
+    \vskip0.45em
+    \ifx\insertsubtitle\@empty
+    \else
+      {\usebeamerfont{subtitle}\usebeamercolor[fg]{subtitle}\insertsubtitle\par}
+    \fi
+    \vskip2.9cm
+    {\usebeamerfont{author}\insertauthor\par}
+    \vskip0.55em
+    {\usebeamerfont{institute}\insertinstitute\par}
+  \end{flushleft}
+
+  \vfill
+  \begin{beamercolorbox}[wd=\paperwidth,ht=0.52cm,dp=0cm,left]{}
+    \hspace*{0.55cm}
+    {\color{white}\small \inserttitlepagefooter}
+  \end{beamercolorbox}
+}
+
+\mode<all>

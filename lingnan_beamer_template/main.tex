@@ -1,0 +1,183 @@
+%!TEX encoding = UTF-8 Unicode
+%!TEX program = xelatex
+
+\documentclass[UTF8,10pt,aspectratio=169,dvipsnames,svgnames,x11names]{beamer}
+
+\usepackage[british]{babel}
+\usepackage{fontspec}
+\usepackage{xeCJK}
+\usepackage{amsmath}
+\usepackage{unicode-math}
+\usepackage{graphicx}
+\usepackage{tikz}
+\usetikzlibrary{arrows.meta,calc,decorations.pathreplacing,positioning,shapes.geometric}
+\usepackage{booktabs}
+\usepackage{array}
+\usepackage{tabularx}
+\usepackage{longtable}
+\usepackage{multicol}
+\usepackage{multirow}
+\usepackage{color}
+\usepackage{cancel}
+\usepackage{threeparttable}
+
+\hypersetup{urlcolor=blue}
+
+\usetheme{lingnan}
+\usefonttheme{serif}
+
+\IfFontExistsTF{Times New Roman}{
+  \setmainfont{Times New Roman}
+  \setsansfont{Times New Roman}
+}{
+  \setmainfont{TeX Gyre Termes}
+  \setsansfont{TeX Gyre Termes}
+}
+\setmonofont{lmmono10-regular.otf}
+\setmathfont{texgyretermes-math.otf}
+
+\IfFontExistsTF{Microsoft YaHei}{
+  \setCJKmainfont{Microsoft YaHei}
+  \setCJKsansfont{Microsoft YaHei}
+}{
+  \IfFontExistsTF{PingFang SC}{
+    \setCJKmainfont{PingFang SC}
+    \setCJKsansfont{PingFang SC}
+  }{
+    \IfFontExistsTF{Songti SC}{
+      \setCJKmainfont{Songti SC}
+      \setCJKsansfont{Heiti SC}
+    }{
+      \IfFontExistsTF{FandolSong-Regular}{
+        \setCJKmainfont{FandolSong-Regular}
+        \setCJKsansfont{FandolHei-Regular}
+      }{}
+    }
+  }
+}
+
+\setbeamerfont{title}{family=\sffamily}
+\setbeamerfont{frametitle}{family=\sffamily}
+\setbeamerfont{section title}{family=\sffamily}
+\setbeamerfont{date}{size=\small}
+\setbeamerfont{itemize/enumerate body}{size=\scriptsize}
+\setbeamerfont{itemize/enumerate subbody}{size=\scriptsize}
+\setbeamerfont{itemize/enumerate subsubbody}{size=\scriptsize}
+\setcounter{tocdepth}{1}
+\setbeamertemplate{caption}[numbered]
+\numberwithin{equation}{section}
+
+\newcommand{\partspeaker}{}
+\newcommand{\paperref}{Ngai and Pissarides (2007)}
+\newcommand{\gammabar}{\bar{\gamma}}
+\newcommand{\TFP}{\mathrm{TFP}}
+\newcommand{\slidecite}[1]{{\color{black!55}\scriptsize #1}}
+\DeclareRobustCommand{\focus}[1]{%
+  {\color{darkred!80!black}\bfseries #1}%
+}
+\let\plainhyperlink\hyperlink
+\renewcommand{\hyperlink}[2]{%
+  \plainhyperlink{#1}{\begingroup\color{darkred!80!black}#2\endgroup}}
+
+\title[Structural Change]{Structural Change in a Multisector Model of Growth}
+\subtitle{\paperref: Sectoral Productivity, Structural Change, and Balanced Growth}
+\author[Ngai \& Pissarides]{
+  \textbf{Authors:} L. Rachel Ngai and Christopher A. Pissarides
+  \texorpdfstring{\\\medskip {\small \textbf{Group members:} Binghui Guo, Heming Chen, Yuran Xia,\\ Yunqi Gu, Zihao Liang}}{}
+  \texorpdfstring{\\\medskip {\small \textbf{Reporter:} Binghui Guo}}{}
+}
+\institute[Advanced Macro II]{Advanced Macroeconomics II}
+\date[V1]{Slides V1 -- \today}
+\titlepageinfo{
+  \begin{tabular}{@{}l@{}}
+    Paper presentation\\
+    Group 4\\
+    American Economic Review, 2007
+  \end{tabular}
+}
+\titlepagefooter{}
+
+\setbeamertemplate{section page}{
+  \begin{tikzpicture}[remember picture,overlay]
+    \fill[white] (current page.south west) rectangle (current page.north east);
+    \fill[lingnangrey!20!white]
+      ([xshift=0.0cm,yshift=-0.70cm]current page.north west)
+      rectangle
+      ([xshift=\paperwidth,yshift=-0.92cm]current page.north west);
+    \fill[darkred!80!black]
+      ([xshift=0.0cm,yshift=-0.70cm]current page.north west)
+      rectangle
+      ([xshift=0.30\paperwidth,yshift=-0.92cm]current page.north west);
+    \fill[darkred!80!black]
+      ([xshift=1.10cm,yshift=1.05cm]current page.south west)
+      rectangle
+      ([xshift=11.80cm,yshift=1.12cm]current page.south west);
+    \node[anchor=west,inner sep=0pt]
+      at ([xshift=1.10cm,yshift=-1.85cm]current page.north west)
+      {\color{lingnangrey!85!black}\sffamily\bfseries\fontsize{42}{42}\selectfont 0\thesection};
+    \node[anchor=west,inner sep=0pt]
+      at ([xshift=1.18cm,yshift=-2.58cm]current page.north west)
+      {\color{darkred!80!black}\sffamily\bfseries\large PART \thesection};
+    \node[anchor=west,text width=0.78\paperwidth,align=left,inner sep=0pt]
+      at ([xshift=1.10cm,yshift=-4.00cm]current page.north west)
+      {\color{black}\sffamily\bfseries\fontsize{26}{31}\selectfont\insertsectionhead};
+    \if\relax\detokenize\expandafter{\partspeaker}\relax
+    \else
+      \node[anchor=west,text width=0.78\paperwidth,align=left,inner sep=0pt]
+        at ([xshift=1.12cm,yshift=-5.05cm]current page.north west)
+        {\color{black!58}\sffamily\large Presenter: \partspeaker};
+    \fi
+    \node[anchor=west,text width=0.68\paperwidth,align=left,inner sep=0pt]
+      at ([xshift=1.10cm,yshift=1.52cm]current page.south west)
+      {\color{black!55}\sffamily\small Academic Presentation Template};
+    \node[anchor=west,inner sep=0pt]
+      at ([xshift=1.10cm,yshift=0.55cm]current page.south west)
+      {\color{black!70}\sffamily\footnotesize \insertshorttitle};
+    \node[anchor=east,inner sep=0pt]
+      at ([xshift=-1.05cm,yshift=0.55cm]current page.south east)
+      {\color{darkred!80!black}\sffamily\footnotesize \insertshortauthor};
+  \end{tikzpicture}
+}
+
+\AtBeginSection[]{
+  \begin{frame}[plain]
+    \sectionpage
+  \end{frame}
+}
+
+\begin{document}
+
+\frame[plain]{\titlepage}
+\setcounter{framenumber}{0}
+
+\begin{frame}{Contents}
+  \footnotesize
+  \tableofcontents[hideallsubsections]
+\end{frame}
+
+\renewcommand{\partspeaker}{Binghui Guo}
+\input{tex/01_introduction}
+\renewcommand{\partspeaker}{Binghui Guo}
+\input{tex/02_core_analysis}
+\renewcommand{\partspeaker}{Binghui Guo}
+\input{tex/03_structural_change}
+\renewcommand{\partspeaker}{Binghui Guo}
+\input{tex/04_aggregate_growth}
+\renewcommand{\partspeaker}{Binghui Guo}
+\input{tex/05_extensions_discussion}
+
+\begin{frame}
+  \vspace*{1.20cm}
+  \begin{center}
+    {\color{lingnangrey!85!black}\sffamily\bfseries\fontsize{42}{42}\selectfont Q\&A\par}
+    \vspace{1.05cm}
+    {\color{black}\sffamily\bfseries\fontsize{30}{35}\selectfont Thank You\par}
+    \vspace{0.10cm}
+    {\color{black!58}\sffamily\large Questions and comments are welcome\par}
+  \end{center}
+\end{frame}
+
+\appendix
+\input{tex/99_appendix}
+
+\end{document}

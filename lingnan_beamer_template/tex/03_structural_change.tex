@@ -1,0 +1,210 @@
+\section{Structural Change Mechanism}
+
+\begin{frame}{Employment Shares: The Central Decomposition}
+  \small
+  \begin{block}{Consumption-only sectors}
+    \begin{equation*}
+      n_i=\frac{x_i}{X}\left(\frac{c}{y}\right),\qquad i\neq m .
+    \end{equation*}
+  \end{block}
+
+  \begin{alertblock}{Manufacturing}
+    \begin{equation*}
+      n_m=\frac{x_m}{X}\left(\frac{c}{y}\right)+\left(1-\frac{c}{y}\right).
+    \end{equation*}
+  \end{alertblock}
+
+  \vspace{0.10cm}
+  \begin{itemize}
+    \item $\frac{x_i}{X}$ allocates consumption demand across final goods.
+    \item $\frac{c}{y}$ is the labor share needed for total consumption.
+    \item Manufacturing also supplies investment demand, captured by $1-c/y$.
+  \end{itemize}
+\end{frame}
+
+\begin{frame}[label=relativeemployment]{Proposition 1: Relative Employment and Relative Prices}
+  \small
+  \begin{block}{Relative employment growth}
+    \begin{equation*}
+      \frac{\dot n_i}{n_i}-\frac{\dot n_j}{n_j}
+      =(1-\varepsilon)(\gamma_j-\gamma_i),\qquad i,j\neq m .
+    \end{equation*}
+  \end{block}
+
+  \begin{block}{Relative price growth}
+    \begin{equation*}
+      \frac{\dot p_i}{p_i}-\frac{\dot p_j}{p_j}
+      =\gamma_j-\gamma_i .
+    \end{equation*}
+  \end{block}
+
+  \begin{alertblock}{Direct implication}
+    \begin{equation*}
+      \frac{\dot n_i}{n_i}-\frac{\dot n_j}{n_j}
+      =(1-\varepsilon)\left(
+      \frac{\dot p_i}{p_i}-\frac{\dot p_j}{p_j}\right).
+    \end{equation*}
+  \end{alertblock}
+  \hyperlink{appendixrelative}{\beamerbutton{Derivation sketch}}
+\end{frame}
+
+\begin{frame}{The Sign of $1-\varepsilon$ Determines the Direction}
+  \small
+  \begin{columns}[T,onlytextwidth]
+    \begin{column}{0.32\textwidth}
+      \begin{alertblock}{$\varepsilon<1$}
+        \begin{itemize}
+          \item Goods are poor substitutes.
+          \item Demand is price inelastic.
+          \item Labor moves toward slow-TFP-growth sectors.
+        \end{itemize}
+      \end{alertblock}
+    \end{column}
+    \begin{column}{0.32\textwidth}
+      \begin{block}{$\varepsilon=1$}
+        \begin{itemize}
+          \item Cobb-Douglas aggregator.
+          \item Expenditure shares are constant.
+          \item TFP gaps change prices but not employment shares.
+        \end{itemize}
+      \end{block}
+    \end{column}
+    \begin{column}{0.32\textwidth}
+      \begin{block}{$\varepsilon>1$}
+        \begin{itemize}
+          \item Goods are strong substitutes.
+          \item Demand is price elastic.
+          \item Labor moves toward fast-TFP-growth sectors.
+        \end{itemize}
+      \end{block}
+    \end{column}
+  \end{columns}
+
+  \vspace{0.25cm}
+  \begin{center}
+    \begin{tikzpicture}[x=1cm,y=1cm]
+      \draw[-{Latex[length=2mm]},thick] (0,0) -- (8.8,0);
+      \node[anchor=east] at (0,0) {\scriptsize slow TFP};
+      \node[anchor=west] at (8.8,0) {\scriptsize fast TFP};
+      \draw[darkred!80!black,very thick,-{Latex[length=2mm]}] (5.9,0.45) -- (2.5,0.45)
+        node[midway,above] {\scriptsize $\varepsilon<1$};
+      \draw[black!70,very thick,-{Latex[length=2mm]}] (2.9,-0.45) -- (6.3,-0.45)
+        node[midway,below] {\scriptsize $\varepsilon>1$};
+    \end{tikzpicture}
+  \end{center}
+\end{frame}
+
+\begin{frame}{Proposition 2: When Do Employment Shares Change?}
+  \footnotesize
+  \begin{tabularx}{\textwidth}{@{}p{0.28\textwidth}X X@{}}
+    \toprule
+    Case & Condition for structural change & Type of reallocation \\
+    \midrule
+    Equal sectoral TFP growth
+      & $\dot c/c\neq \dot y/y$
+      & Between the aggregate consumption sector and the manufacturing capital-goods role. \\
+    Different sectoral TFP growth on a balanced path
+      & $\varepsilon\neq 1$ and at least one $\gamma_i\neq\gamma_m$
+      & Across consumption sectors with different TFP growth rates. \\
+    Balanced path with $\varepsilon<1$
+      & Goods are poor substitutes
+      & Employment moves from high-TFP-growth sectors to low-TFP-growth sectors. \\
+    Balanced path with $\varepsilon>1$
+      & Goods are strong substitutes
+      & Employment moves from low-TFP-growth sectors to high-TFP-growth sectors. \\
+    \bottomrule
+  \end{tabularx}
+
+  \vspace{0.30cm}
+  \begin{alertblock}{Why this matters}
+    Structural change is not a residual. In the model it is pinned down by
+    relative productivity growth and the final-goods substitution elasticity.
+  \end{alertblock}
+\end{frame}
+
+\begin{frame}{Nominal Shares Move More Than Real Shares}
+  \small
+  \begin{columns}[T,onlytextwidth]
+    \begin{column}{0.49\textwidth}
+      \begin{block}{Nominal side}
+        \begin{itemize}
+          \item Employment shares equal nominal output shares.
+          \item With $\varepsilon<1$, low-growth sectors get rising nominal shares.
+          \item This matches the logic of Baumol's cost disease.
+        \end{itemize}
+      \end{block}
+    \end{column}
+    \begin{column}{0.49\textwidth}
+      \begin{alertblock}{Real side}
+        \begin{equation*}
+          \frac{\dot c_i}{c_i}-\frac{\dot c_j}{c_j}
+          =\varepsilon(\gamma_i-\gamma_j).
+        \end{equation*}
+        Small $\varepsilon$ dampens changes in real consumption shares.
+      \end{alertblock}
+    \end{column}
+  \end{columns}
+
+  \vspace{0.20cm}
+  \slidecite{The paper links this implication to Kravis, Heston, and Summers (1983) and related evidence on services.}
+\end{frame}
+
+\begin{frame}{Individual Employment Dynamics}
+  \small
+  \begin{block}{Consumption-sector law of motion}
+    \begin{equation*}
+      \frac{\dot n_i}{n_i}
+      =
+      \frac{\dot{(c/y)}}{c/y}
+      +(1-\varepsilon)(\gammabar-\gamma_i),
+      \qquad i\neq m ,
+    \end{equation*}
+    where $\gammabar=\sum_i(x_i/X)\gamma_i$ is the consumption-share-weighted
+    average TFP growth rate.
+  \end{block}
+
+  \vspace{0.12cm}
+  \begin{columns}[T,onlytextwidth]
+    \begin{column}{0.48\textwidth}
+      \begin{alertblock}{Balanced path}
+        If $c/y$ is constant, a sector expands when its TFP growth is on the
+        ``right'' side of $\gammabar$.
+      \end{alertblock}
+    \end{column}
+    \begin{column}{0.48\textwidth}
+      \begin{block}{Moving threshold}
+        $\gammabar$ itself changes because expenditure weights $x_i/X$ evolve
+        with relative productivity.
+      \end{block}
+    \end{column}
+  \end{columns}
+\end{frame}
+
+\begin{frame}{Mechanism in One Diagram}
+  \small
+  \begin{center}
+    \resizebox{\textwidth}{!}{%
+    \begin{tikzpicture}[
+      node distance=0.7cm,
+      box/.style={draw=black!50,rounded corners,align=center,text width=0.22\textwidth,minimum height=0.9cm},
+      redbox/.style={draw=darkred!80!black,fill=lingnangrey!35!white,rounded corners,align=center,text width=0.22\textwidth,minimum height=0.9cm},
+      arr/.style={-{Latex[length=2mm]},thick,darkred!80!black}
+    ]
+      \node[redbox] (tfp) {Sectoral TFP gap\\$\gamma_i\neq\gamma_j$};
+      \node[box,right=of tfp] (price) {Relative price changes\\$\dot p_i/p_i-\dot p_j/p_j$};
+      \node[box,right=of price] (demand) {CES demand response\\controlled by $\varepsilon$};
+      \node[redbox,right=of demand] (labor) {Employment-share dynamics\\$\dot n_i/n_i-\dot n_j/n_j$};
+      \draw[arr] (tfp) -- (price);
+      \draw[arr] (price) -- (demand);
+      \draw[arr] (demand) -- (labor);
+    \end{tikzpicture}
+    }
+  \end{center}
+
+  \vspace{0.25cm}
+  \begin{alertblock}{Main intuition for $\varepsilon<1$}
+    Productivity growth makes a sector cheaper. But if goods are poor
+    substitutes, demand does not rise enough to absorb all extra output, so
+    labor leaves the fast-growing sector.
+  \end{alertblock}
+\end{frame}
