@@ -1,16 +1,22 @@
 \section{Structural Change Mechanism}
 
-\begin{frame}{Employment Shares: The Central Decomposition}
+\begin{frame}[label=employmentshares]{Employment Shares}
   \small
   \begin{block}{Consumption-only sectors}
     \begin{equation*}
-      n_i=\frac{x_i}{X}\left(\frac{c}{y}\right),\qquad i\neq m .
+      \hyperlink{appendixemploymentshares}{%
+      n_i=\frac{x_i}{X}\left(\frac{c}{y}\right),
+      \qquad i\neq m .
+      \qquad (13)}
     \end{equation*}
   \end{block}
 
   \begin{alertblock}{Manufacturing}
     \begin{equation*}
-      n_m=\frac{x_m}{X}\left(\frac{c}{y}\right)+\left(1-\frac{c}{y}\right).
+      \hyperlink{appendixemploymentshares}{%
+      n_m=\frac{x_m}{X}\left(\frac{c}{y}\right)
+      +\underbrace{\left(1-\frac{c}{y}\right)}_{\text{savings rate}} .
+      \qquad (14)}
     \end{equation*}
   \end{alertblock}
 
@@ -23,33 +29,135 @@
 \end{frame}
 
 \begin{frame}[label=relativeemployment]{Proposition 1: Relative Employment and Relative Prices}
-  \small
+  \footnotesize
   \begin{block}{Relative employment growth}
     \begin{equation*}
+      \hyperlink{appendixrelative}{%
       \frac{\dot n_i}{n_i}-\frac{\dot n_j}{n_j}
       =(1-\varepsilon)(\gamma_j-\gamma_i),\qquad i,j\neq m .
+      \qquad (15)}
     \end{equation*}
   \end{block}
 
   \begin{block}{Relative price growth}
     \begin{equation*}
       \frac{\dot p_i}{p_i}-\frac{\dot p_j}{p_j}
-      =\gamma_j-\gamma_i .
+      =\gamma_j-\gamma_i,\qquad i,j\neq m .
+      \qquad (16)
     \end{equation*}
+    \vspace{-0.28cm}
+    \begin{center}
+      \scriptsize
+      \(\displaystyle
+      \left(\frac{p_i}{p_j}=\frac{A_j}{A_i}\right)
+      \)
+    \end{center}
+    \vspace{-0.16cm}
   \end{block}
 
   \begin{alertblock}{Direct implication}
     \begin{equation*}
+      \hyperlink{appendixrelative}{%
       \frac{\dot n_i}{n_i}-\frac{\dot n_j}{n_j}
       =(1-\varepsilon)\left(
       \frac{\dot p_i}{p_i}-\frac{\dot p_j}{p_j}\right).
+      \qquad (17)}
     \end{equation*}
   \end{alertblock}
-  \hyperlink{appendixrelative}{\beamerbutton{Derivation sketch}}
+\end{frame}
+
+\begin{frame}[label=individualdynamics]{Individual Employment Dynamics}
+  \footnotesize
+  \setlength{\abovedisplayskip}{3pt}
+  \setlength{\belowdisplayskip}{3pt}
+  Let
+  \[
+    \gammabar\equiv\sum_{i=1}^m\frac{x_i}{X}\gamma_i .
+  \]
+
+  \textbf{\textit{Consumption sectors:}} each sector follows a common intercept
+  plus a TFP-growth term.
+  \[
+    \hyperlink{appendixindividual}{%
+    \frac{\dot n_i}{n_i}
+    =
+    \frac{\dot{(c/y)}}{c/y}
+    +(1-\varepsilon)(\gammabar-\gamma_i),
+    \qquad i\neq m .
+    \qquad (18)}
+  \]
+
+  \vspace{0.04cm}
+  \textbf{\textit{Manufacturing:}} employment combines consumption-good
+  production and capital-good production.
+  \[
+    \hyperlink{appendixmanufacturing}{%
+    \begin{aligned}
+      \frac{\dot n_m}{n_m}
+      &=
+      \left[
+      \frac{\dot{(c/y)}}{c/y}
+      +(1-\varepsilon)(\gammabar-\gamma_m)
+      \right]\frac{(c/y)(x_m/X)}{n_m}
+      -\frac{\dot{(c/y)}}{1-c/y}\frac{1-c/y}{n_m}.
+    \end{aligned}
+    \qquad (19)}
+  \]
+\end{frame}
+
+\begin{frame}{Proposition 2: When Do Employment Shares Change?}
+  \footnotesize
+  \begin{center}
+    {\color{black}%
+    \(\displaystyle
+      \frac{\dot n_i}{n_i}
+      =
+      \frac{\dot{(c/y)}}{c/y}
+      +(1-\varepsilon)(\gammabar-\gamma_i).
+      \qquad i\neq m .
+      \qquad (18)
+    \)}
+  \end{center}
+
+  \vspace{0.06cm}
+  \begin{tabularx}{\textwidth}{@{}p{0.30\textwidth}X X@{}}
+    \toprule
+    Case & Condition for structural change & Type of reallocation \\
+    \midrule
+    Equal sectoral TFP growth
+      & $\dot c/c\neq \dot y/y$
+      & Between the aggregate consumption sector and the manufacturing capital-goods role. \\
+    Different sectoral TFP growth on a balanced path
+      & $\varepsilon\neq 1$ and at least one $\gamma_i\neq\gamma_m$
+      & Across consumption sectors with different TFP growth rates. \\
+    \bottomrule
+  \end{tabularx}
 \end{frame}
 
 \begin{frame}{The Sign of $1-\varepsilon$ Determines the Direction}
-  \small
+  \footnotesize
+  \begin{center}
+    {\color{black}
+    \(\displaystyle
+      \gamma_i<\gamma_j
+      \quad\Longrightarrow\quad
+      \gamma_j-\gamma_i>0
+    \)}
+
+    \vspace{0.06cm}
+    {\color{black}%
+    \(\displaystyle
+      \frac{\dot n_i}{n_i}
+      -
+      \frac{\dot n_j}{n_j}
+      =
+      (1-\varepsilon)(\gamma_j-\gamma_i),
+      \qquad i,j\neq m .
+      \qquad (17)
+    \)}
+  \end{center}
+
+  \vspace{0.05cm}
   \begin{columns}[T,onlytextwidth]
     \begin{column}{0.32\textwidth}
       \begin{alertblock}{$\varepsilon<1$}
@@ -80,7 +188,7 @@
     \end{column}
   \end{columns}
 
-  \vspace{0.25cm}
+  \vspace{0.18cm}
   \begin{center}
     \begin{tikzpicture}[x=1cm,y=1cm]
       \draw[-{Latex[length=2mm]},thick] (0,0) -- (8.8,0);
@@ -94,93 +202,52 @@
   \end{center}
 \end{frame}
 
-\begin{frame}{Proposition 2: When Do Employment Shares Change?}
+\begin{frame}[label=nominalshares]{Nominal Shares Move More Than Real Shares}
   \footnotesize
-  \begin{tabularx}{\textwidth}{@{}p{0.28\textwidth}X X@{}}
-    \toprule
-    Case & Condition for structural change & Type of reallocation \\
-    \midrule
-    Equal sectoral TFP growth
-      & $\dot c/c\neq \dot y/y$
-      & Between the aggregate consumption sector and the manufacturing capital-goods role. \\
-    Different sectoral TFP growth on a balanced path
-      & $\varepsilon\neq 1$ and at least one $\gamma_i\neq\gamma_m$
-      & Across consumption sectors with different TFP growth rates. \\
-    Balanced path with $\varepsilon<1$
-      & Goods are poor substitutes
-      & Employment moves from high-TFP-growth sectors to low-TFP-growth sectors. \\
-    Balanced path with $\varepsilon>1$
-      & Goods are strong substitutes
-      & Employment moves from low-TFP-growth sectors to high-TFP-growth sectors. \\
-    \bottomrule
-  \end{tabularx}
-
-  \vspace{0.30cm}
-  \begin{alertblock}{Why this matters}
-    Structural change is not a residual. In the model it is pinned down by
-    relative productivity growth and the final-goods substitution elasticity.
-  \end{alertblock}
-\end{frame}
-
-\begin{frame}{Nominal Shares Move More Than Real Shares}
-  \small
   \begin{columns}[T,onlytextwidth]
-    \begin{column}{0.49\textwidth}
+    \begin{column}{0.52\textwidth}
       \begin{block}{Nominal side}
-        \begin{itemize}
-          \item Employment shares equal nominal output shares.
-          \item With $\varepsilon<1$, low-growth sectors get rising nominal shares.
-          \item This matches the logic of Baumol's cost disease.
-        \end{itemize}
+        \scriptsize
+        \textbf{\textit{Nominal output shares:}}
+        \[
+          {\color{black}
+          \frac{p_iF^i}{p_my}=n_i.}
+        \]
+
+        \textbf{\textit{Nominal consumption shares:}}
+        \[
+          {\color{black}
+          \frac{p_ic_i}{\sum_{j=1}^m p_jc_j}=\frac{x_i}{X}.}
+        \]
+
+        Both nominal shares inherit the same relative reallocation force:
+        \[
+          {\color{black}
+          \frac{d}{dt}\log\frac{n_i}{n_j}
+          =
+          \frac{d}{dt}\log\frac{x_i/X}{x_j/X}
+          =
+          (1-\varepsilon)(\gamma_j-\gamma_i).}
+        \]
       \end{block}
     \end{column}
-    \begin{column}{0.49\textwidth}
+    \begin{column}{0.44\textwidth}
       \begin{alertblock}{Real side}
+        \scriptsize
+        \textbf{\textit{Real consumption shares:}}
         \begin{equation*}
+          {\color{black}
           \frac{\dot c_i}{c_i}-\frac{\dot c_j}{c_j}
-          =\varepsilon(\gamma_i-\gamma_j).
+          =\varepsilon(\gamma_i-\gamma_j)
+          \qquad (20)}
         \end{equation*}
         Small $\varepsilon$ dampens changes in real consumption shares.
       \end{alertblock}
     \end{column}
   \end{columns}
-
-  \vspace{0.20cm}
-  \slidecite{The paper links this implication to Kravis, Heston, and Summers (1983) and related evidence on services.}
 \end{frame}
 
-\begin{frame}{Individual Employment Dynamics}
-  \small
-  \begin{block}{Consumption-sector law of motion}
-    \begin{equation*}
-      \frac{\dot n_i}{n_i}
-      =
-      \frac{\dot{(c/y)}}{c/y}
-      +(1-\varepsilon)(\gammabar-\gamma_i),
-      \qquad i\neq m ,
-    \end{equation*}
-    where $\gammabar=\sum_i(x_i/X)\gamma_i$ is the consumption-share-weighted
-    average TFP growth rate.
-  \end{block}
-
-  \vspace{0.12cm}
-  \begin{columns}[T,onlytextwidth]
-    \begin{column}{0.48\textwidth}
-      \begin{alertblock}{Balanced path}
-        If $c/y$ is constant, a sector expands when its TFP growth is on the
-        ``right'' side of $\gammabar$.
-      \end{alertblock}
-    \end{column}
-    \begin{column}{0.48\textwidth}
-      \begin{block}{Moving threshold}
-        $\gammabar$ itself changes because expenditure weights $x_i/X$ evolve
-        with relative productivity.
-      \end{block}
-    \end{column}
-  \end{columns}
-\end{frame}
-
-\begin{frame}{Mechanism in One Diagram}
+\begin{frame}{Mechanism Review}
   \small
   \begin{center}
     \resizebox{\textwidth}{!}{%

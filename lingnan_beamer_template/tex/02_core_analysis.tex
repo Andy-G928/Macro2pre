@@ -1,94 +1,214 @@
 \section{Baseline Model}
 
-\begin{frame}{Environment: Many Consumption Goods, One Capital-Goods Sector}
-  \small
+\begin{frame}{Baseline Economy}
+  \scriptsize
   \begin{columns}[T,onlytextwidth]
-    \begin{column}{0.47\textwidth}
-      \begin{block}{Sectoral structure}
-        \begin{itemize}
-          \item There are $m$ sectors.
-          \item Sectors $i=1,\ldots,m-1$ produce consumption goods only.
-          \item Sector $m$ is manufacturing.
-          \item Manufacturing produces both a final good and the capital good.
-        \end{itemize}
-      \end{block}
+    \begin{column}{0.43\textwidth}
+      \resizebox{\linewidth}{!}{%
+      \begin{tikzpicture}[
+        x=1cm,y=1cm,
+        sector/.style={draw=darkred!80!black,thick,rounded corners,align=center,
+          text width=4.35cm,minimum height=1.22cm,inner sep=4pt},
+        output/.style={draw=black!55,rounded corners,align=center,
+          text width=2.05cm,minimum height=0.62cm,inner sep=3pt},
+        arr/.style={-{Latex[length=2mm]},thick,darkred!80!black}
+      ]
+        \node[sector] (cons) at (0,2.55)
+          {Sectors $i=1,\ldots,m-1$\\consumption goods only};
+        \node[sector] (manu) at (0,0.70)
+          {Sector $m$\\manufacturing};
+        \node[output] (ci) at (3.75,2.55) {$c_i$};
+        \node[output] (cm) at (3.75,1.04) {$c_m$};
+        \node[output] (cap) at (3.75,0.02) {capital good};
+        \draw[arr] (cons.east) -- (ci.west);
+        \draw[arr] (manu.east) -- (cm.west);
+        \draw[arr] (manu.east) -- (cap.west);
+        \node[align=left,text width=4.9cm,anchor=west] at (-2.18,-0.78)
+          {Labor and capital are allocated across sectors:
+          $\{n_i,k_i\}_{i=1}^m$.};
+      \end{tikzpicture}
+      }
     \end{column}
-    \begin{column}{0.49\textwidth}
-      \begin{alertblock}{Key modeling choices}
-        \begin{itemize}
-          \item Labor and capital move freely across sectors.
-          \item Production functions differ only in TFP levels and growth rates.
-          \item Preferences are homothetic CES, not nonhomothetic.
-        \end{itemize}
-      \end{alertblock}
+    \begin{column}{0.55\textwidth}
+      \vspace{0.10cm}
+      {\bfseries Planner's objective}
+      \vspace{-0.08cm}
+      \begin{equation*}
+        U=\int_0^\infty e^{-\rho t}v(c_1,\ldots,c_m)\,dt .
+      \end{equation*}
+
+      \vspace{0.08cm}
+      {\bfseries Feasibility}
+      \vspace{-0.02cm}
+      \begin{equation*}
+        \left.
+        \begin{aligned}
+          \sum_{i=1}^m n_i&=1,\\[0.08cm]
+          \sum_{i=1}^m n_i k_i&=k
+        \end{aligned}
+        \right\}
+        \quad \text{Resource constraints}
+      \end{equation*}
+
+      \vspace{-0.02cm}
+      \begin{equation*}
+        c_i=F^i(n_i k_i,n_i),\qquad i\neq m .
+      \end{equation*}
+
+      \vspace{-0.02cm}
+      \begin{equation*}
+        \dot{k}=F^m(n_mk_m,n_m)-c_m-(\delta+\nu)k .
+      \end{equation*}
     \end{column}
   \end{columns}
-
-  \vspace{0.15cm}
-  \begin{equation*}
-    U=\int_0^\infty e^{-\rho t}v(c_1,\ldots,c_m)\,dt .
-  \end{equation*}
 \end{frame}
 
-\begin{frame}{Resource Constraints}
-  \small
-  \begin{block}{Factor allocation}
-    \begin{equation*}
-      \sum_{i=1}^m n_i=1,\qquad
-      \sum_{i=1}^m n_i k_i=k .
-    \end{equation*}
-  \end{block}
-
-  \vspace{0.12cm}
+\begin{frame}{Present-Value Hamiltonian}
+  \scriptsize
+  \setlength{\abovedisplayskip}{2pt}
+  \setlength{\belowdisplayskip}{2pt}
+  \setlength{\jot}{4pt}
   \begin{columns}[T,onlytextwidth]
-    \begin{column}{0.48\textwidth}
-      \begin{block}{Consumption sectors}
-        \begin{equation*}
-          c_i=F^i(n_i k_i,n_i),\quad i\neq m .
-        \end{equation*}
-      \end{block}
+    \begin{column}{0.60\textwidth}
+      {\bfseries Hamiltonian}
+      \vspace{-0.08cm}
+      \begin{equation*}
+        \begin{aligned}
+          \mathcal H^P
+          =&\, e^{-\rho t}v(c_1,\ldots,c_m)\\
+          &+q\!\left[
+            F^m(n_mk_m,n_m)-c_m-(\delta+\nu)k
+          \right]\\
+          &+\sum_{i=1}^{m-1}\mu_i\!\left[
+            F^i(n_ik_i,n_i)-c_i
+          \right]\\
+          &+\lambda\!\left(1-\sum_{i=1}^m n_i\right)\\
+          &+\eta\!\left(k-\sum_{i=1}^m n_i k_i\right).
+        \end{aligned}
+      \end{equation*}
     \end{column}
-    \begin{column}{0.48\textwidth}
-      \begin{alertblock}{Manufacturing sector}
-        \begin{equation*}
-          \dot{k}=F^m(n_mk_m,n_m)-c_m-(\delta+\nu)k .
-        \end{equation*}
-      \end{alertblock}
+    \begin{column}{0.37\textwidth}
+      \textbf{Optimization logic}
+      \vspace{0.04cm}
+      \begin{itemize}
+        \setlength\itemsep{0.06cm}
+        \item $\partial\mathcal H^P/\partial c_i=0$ and
+          $\partial\mathcal H^P/\partial c_m=0$: identify the shadow
+          values of consumption goods.
+        \item $\partial\mathcal H^P/\partial k_i=0$: equalize value
+          marginal products of capital.
+        \item $\partial\mathcal H^P/\partial n_i=0$: equalize value
+          marginal products of labor.
+        \item $\dot q=-\partial\mathcal H^P/\partial k$: obtain the
+          dynamic efficiency condition.
+      \end{itemize}
+
+      \vspace{0.04cm}
+      \textbf{Transversality}
+      \vspace{-0.10cm}
+      \begin{equation*}
+        \lim_{t\to\infty}
+        k(t)\exp\!\left[-\int_0^t
+        \bigl(F_K^m(\tau)-\delta-\nu\bigr)d\tau\right]=0 .
+      \end{equation*}
     \end{column}
   \end{columns}
-
-  \vspace{0.18cm}
-  \footnotesize
-  Interpretation: non-manufacturing output is consumed immediately; manufacturing
-  output is split between current consumption and investment.
 \end{frame}
 
-\begin{frame}{Static Efficiency: TFP Gaps Become Relative Prices}
-  \small
+\begin{frame}[label=efficiencycondition]{Efficiency Condition}
+  \scriptsize
+  \textbf{\textit{Static efficiency conditions:}} factor reallocation stops only when
+  value marginal products are equal across sectors.
+
+  \vspace{0.10cm}
+  \begin{center}
+    \hyperlink{appendixstatic}{%
+      \(\displaystyle
+      \frac{v_i}{v_m}
+      =
+      \frac{F_K^m}{F_K^i}
+      =
+      \frac{F_N^m}{F_N^i}
+      \quad \forall i.
+      \qquad (5)
+      \)}
+  \end{center}
+
+  \vspace{0.14cm}
+  \textbf{\textit{Dynamic efficiency condition:}} the marginal utility of the
+  manufacturing good evolves with the net return to capital.
+
+  \vspace{0.10cm}
+  \begin{center}
+    \hyperlink{appendixdynamic}{%
+      \(\displaystyle
+      -\frac{\dot v_m}{v_m}
+      =
+      F_K^m-(\delta+\rho+\nu).
+      \qquad (6)
+      \)}
+  \end{center}
+\end{frame}
+
+\begin{frame}[label=tfpprices]{TFP Gaps Become Relative Prices}
+  \scriptsize
+  \begin{center}
+    \hyperlink{appendixstatic}{%
+      \(\displaystyle
+      \frac{v_i}{v_m}
+      =
+      \frac{F_K^m}{F_K^i}
+      =
+      \frac{F_N^m}{F_N^i}
+      \quad \forall i.
+      \qquad (5)
+      \)}
+  \end{center}
+
   \begin{block}{Sectoral technologies}
+    \vspace{-0.16cm}
     \begin{equation*}
       F^i=A_i F(n_i k_i,n_i),\qquad
       \dot{A}_i/A_i=\gamma_i .
     \end{equation*}
+    \vspace{-0.34cm}
   \end{block}
 
-  \vspace{0.15cm}
-  \begin{alertblock}{Static efficiency implies}
-    \begin{equation*}
-      k_i=k,\qquad
-      \frac{p_i}{p_m}=\frac{v_i}{v_m}=\frac{A_m}{A_i},\quad \forall i .
-    \end{equation*}
-  \end{alertblock}
+  \vspace{0.04cm}
+  \begin{equation*}
+    \begin{aligned}
+      \frac{F_N^i}{F_K^i}=\frac{F_N^m}{F_K^m}
+      &\Longrightarrow
+      \frac{f(k_i)}{f'(k_i)}-k_i
+      =
+      \frac{f(k_m)}{f'(k_m)}-k_m
+      \Longrightarrow k_i=k,\\[0.08cm]
+      \frac{v_i}{v_m}=\frac{F_K^m}{F_K^i}
+      &\Longrightarrow
+      \frac{v_i}{v_m}
+      =
+      \frac{A_m f'(k)}{A_i f'(k)}
+      =
+      \frac{A_m}{A_i}.
+    \end{aligned}
+  \end{equation*}
 
-  \vspace{0.12cm}
-  \begin{itemize}
-    \item Capital-labor ratios equalize because factor markets are frictionless.
-    \item A faster-growing sector becomes relatively cheaper over time.
-    \item This is the bridge from technology differences to demand reallocation.
-  \end{itemize}
+  \begin{alertblock}{Static efficiency implies}
+    \vspace{-0.18cm}
+    \begin{center}
+      \hyperlink{appendixtfp}{%
+        \(\displaystyle
+        k_i=k,\qquad
+        \frac{p_i}{p_m}=\frac{v_i}{v_m}=\frac{A_m}{A_i},
+        \quad \forall i.
+        \qquad (8)
+        \)}
+    \end{center}
+    \vspace{-0.28cm}
+  \end{alertblock}
 \end{frame}
 
-\begin{frame}{CES Preferences: Two Elasticities}
+\begin{frame}{CES Preferences}
   \small
   \begin{equation*}
     v(c_1,\ldots,c_m)=\frac{\phi(c_1,\ldots,c_m)^{1-\theta}-1}{1-\theta},
@@ -114,33 +234,44 @@
   \end{columns}
 \end{frame}
 
-\begin{frame}{Expenditure Ratio: The Key State for Sectoral Demand}
-  \small
-  \begin{block}{Consumption expenditure of sector $i$ relative to manufacturing}
-    \begin{equation*}
-      \frac{p_i c_i}{p_m c_m}
+\begin{frame}[label=expenditureratio]{Expenditure Ratio}
+  \scriptsize
+  \begin{itemize}
+    \setlength\itemsep{0.16cm}
+    \item CES optimality gives
+      $
+      c_i/c_m=(\omega_i/\omega_m)^\varepsilon(p_i/p_m)^{-\varepsilon}
+      $
+      \(\bigl(p_i/p_m=v_i/v_m\bigr)\).
+    \item Multiplying by $p_i/p_m$ converts relative quantities into
+      relative expenditures; substituting $p_i/p_m=A_m/A_i$ gives $x_i$.
+    \item \textbf{Consumption expenditure of sector $i$ relative to manufacturing}
+  \end{itemize}
+
+  \vspace{0.02cm}
+  \begin{equation*}
+    \hyperlink{appendixexpenditure}{%
+    \frac{p_i c_i}{p_m c_m}
       =
       \left(\frac{\omega_i}{\omega_m}\right)^\varepsilon
       \left(\frac{A_m}{A_i}\right)^{1-\varepsilon}
       \equiv x_i .
-    \end{equation*}
-  \end{block}
+    \qquad (10)}
+  \end{equation*}
 
-  \vspace{0.15cm}
-  \begin{columns}[T,onlytextwidth]
-    \begin{column}{0.48\textwidth}
-      \begin{alertblock}{If $\varepsilon<1$}
-        A relative price increase raises expenditure share because demand is
-        price inelastic.
-      \end{alertblock}
-    \end{column}
-    \begin{column}{0.48\textwidth}
-      \begin{block}{If $\varepsilon>1$}
-        A relative price increase lowers expenditure share because consumers
-        substitute away strongly.
-      \end{block}
-    \end{column}
-  \end{columns}
+  \vspace{0.08cm}
+  \begin{center}
+    \begin{tikzpicture}[x=1cm,y=1cm]
+      \node[draw=darkred!80!black,rounded corners,align=center,inner sep=4pt]
+        (price) at (0,0) {\scriptsize TFP gap\\[-0.02cm] $\displaystyle A_m/A_i$};
+      \node[draw=black!55,rounded corners,align=center,inner sep=4pt]
+        (ces) at (4.0,0) {\scriptsize CES demand\\[-0.02cm] $\displaystyle \varepsilon$};
+      \node[draw=darkred!80!black,rounded corners,align=center,inner sep=4pt]
+        (state) at (8.0,0) {\scriptsize expenditure state\\[-0.02cm] $\displaystyle x_i$};
+      \draw[-{Latex[length=2mm]},thick,darkred!80!black] (price) -- (ces);
+      \draw[-{Latex[length=2mm]},thick,darkred!80!black] (ces) -- (state);
+    \end{tikzpicture}
+  \end{center}
 \end{frame}
 
 \begin{frame}{Aggregate Variables in Manufacturing Units}
@@ -164,4 +295,67 @@
     \item $c/y$ is the economy-wide employment share used for consumption goods.
     \item $1-c/y$ is the manufacturing labor share used to produce capital goods.
   \end{itemize}
+\end{frame}
+
+\begin{frame}{Baseline Mechanism Review}
+  \scriptsize
+  \setlength{\abovedisplayskip}{2pt}
+  \setlength{\belowdisplayskip}{2pt}
+  \begin{tikzpicture}[
+    x=1cm,y=1cm,
+    reviewstep/.style={draw=black!45,rounded corners,align=center,
+      text width=0.29\textwidth,minimum height=1.54cm,inner sep=4pt}
+  ]
+    \node[reviewstep] (problem) at (0,2.12)
+      {\textbf{1. Planner problem}\\[-0.03cm]
+      $\displaystyle U=\int_0^\infty e^{-\rho t}v(c)\,dt$\\[-0.02cm]
+      resources and feasibility};
+    \node[reviewstep] (hamiltonian) at (4.55,2.12)
+      {\textbf{2. Hamiltonian}\\[-0.03cm]
+      $\displaystyle \mathcal H^P=e^{-\rho t}v
+      +q[\cdots]+\sum_i\mu_i[\cdots]+\lambda[\cdots]+\eta[\cdots]$};
+    \node[reviewstep] (focs) at (9.10,2.12)
+      {\textbf{3. Optimization}\\[-0.03cm]
+      $\displaystyle \partial_c\mathcal H^P=0,\quad
+      \partial_{n_i,k_i}\mathcal H^P=0$\\[-0.02cm]
+      $\displaystyle \dot q=-\partial_k\mathcal H^P$};
+
+    \node[reviewstep] (efficiency) at (0,0.22)
+      {\textbf{4. Efficiency conditions}\\[-0.03cm]
+      $\displaystyle \frac{v_i}{v_m}
+      =\frac{F_K^m}{F_K^i}
+      =\frac{F_N^m}{F_N^i}$\\[-0.02cm]
+      $\displaystyle -\frac{\dot v_m}{v_m}
+      =F_K^m-(\delta+\rho+\nu)$};
+    \node[reviewstep,draw=darkred!80!black,thick,fill=lingnangrey!35!white]
+      (prices) at (4.55,0.22)
+      {\textbf{5. Relative prices}\\[-0.03cm]
+      $\displaystyle
+      \frac{p_i}{p_m}
+      =
+      \frac{v_i}{v_m}
+      =
+      \frac{A_m}{A_i}$\\[-0.01cm]
+      $\displaystyle \forall i$};
+    \node[reviewstep,draw=darkred!80!black,thick,fill=lingnangrey!35!white]
+      (expend) at (9.10,0.22)
+      {\textbf{6. Expenditure state}\\[-0.03cm]
+      $\displaystyle
+      \frac{p_ic_i}{p_mc_m}
+      =
+      \left(\frac{\omega_i}{\omega_m}\right)^\varepsilon
+      $\\[-0.01cm]
+      $\displaystyle
+      \times
+      \left(\frac{A_m}{A_i}\right)^{1-\varepsilon}
+      \equiv x_i$};
+  \end{tikzpicture}
+
+  \vspace{0.16cm}
+  \begin{center}
+    \focus{Technology} \quad $\Longrightarrow$ \quad
+    \focus{Relative prices} \quad $\Longrightarrow$ \quad
+    \focus{Expenditure shares} \quad $\Longrightarrow$ \quad
+    \focus{Employment reallocation}
+  \end{center}
 \end{frame}

@@ -1,7 +1,265 @@
 \section{Appendix}
 
-\begin{frame}[label=appendixrelative]{Derivation Sketch: Relative Employment}
-  \small
+\begin{frame}[label=appendixstatic]{Deriving Static Efficiency: Formula (5)}
+  \scriptsize
+  The present-value Hamiltonian uses $q$ for capital accumulation, $\mu_i$ for
+  consumption-sector feasibility, $\lambda$ for labor, and $\eta$ for aggregate
+  capital allocation.
+
+  \vspace{0.06cm}
+  \begin{columns}[T,onlytextwidth]
+    \begin{column}{0.48\textwidth}
+      \begin{block}{Consumption FOCs}
+        \vspace{-0.16cm}
+        \[
+          \mu_i=e^{-\rho t}v_i,\quad i<m,
+          \qquad
+          q=e^{-\rho t}v_m .
+        \]
+        \vspace{-0.34cm}
+      \end{block}
+    \end{column}
+    \begin{column}{0.48\textwidth}
+      \begin{block}{Capital-allocation FOCs}
+        \vspace{-0.16cm}
+        \[
+          \mu_iF_K^i=\eta,\quad i<m,
+          \qquad
+          qF_K^m=\eta .
+        \]
+        \vspace{-0.34cm}
+      \end{block}
+    \end{column}
+  \end{columns}
+
+  \vspace{0.04cm}
+  Combining the capital-allocation conditions gives
+  \[
+    \mu_iF_K^i=qF_K^m
+    \quad\Longrightarrow\quad
+    \frac{\mu_i}{q}=\frac{F_K^m}{F_K^i}
+    \quad\Longrightarrow\quad
+    \frac{v_i}{v_m}=\frac{F_K^m}{F_K^i}.
+  \]
+
+  The labor-allocation FOCs are
+  \[
+    \mu_iF_N^i=\lambda,\qquad qF_N^m=\lambda .
+  \]
+  Hence
+  \[
+    \frac{v_i}{v_m}=\frac{F_N^m}{F_N^i}.
+  \]
+
+  Putting the two margins together,
+  \[
+    \boxed{
+      \frac{v_i}{v_m}
+      =
+      \frac{F_K^m}{F_K^i}
+      =
+      \frac{F_N^m}{F_N^i}
+      \quad \forall i
+    }.
+  \]
+
+  \hyperlink{efficiencycondition}{\beamerbutton{Back to Efficiency Condition}}
+\end{frame}
+
+\begin{frame}[label=appendixdynamic]{Deriving Dynamic Efficiency: Formula (6)}
+  \scriptsize
+  The aggregate capital state appears in the accumulation term and in the
+  aggregate capital-allocation constraint. Therefore
+  \[
+    \dot q=-\frac{\partial\mathcal H^P}{\partial k}
+    =q(\delta+\nu)-\eta .
+  \]
+
+  Using the manufacturing capital-allocation FOC, $\eta=qF_K^m$, gives
+  \[
+    \dot q=q(\delta+\nu-F_K^m),
+    \qquad
+    \frac{\dot q}{q}=\delta+\nu-F_K^m .
+  \]
+
+  The consumption first-order condition for the manufacturing good is
+  $q=e^{-\rho t}v_m$, so
+  \[
+    \frac{\dot q}{q}
+    =
+    \frac{\dot v_m}{v_m}-\rho .
+  \]
+
+  Combining the last two equations,
+  \[
+    \frac{\dot v_m}{v_m}-\rho
+    =
+    \delta+\nu-F_K^m
+    \quad\Longrightarrow\quad
+    \boxed{
+      -\frac{\dot v_m}{v_m}
+      =
+      F_K^m-(\delta+\rho+\nu)
+    }.
+  \]
+
+  \vspace{-0.04cm}
+  The corresponding transversality condition is
+  \[
+    \lim_{t\to\infty}
+    k(t)\exp\!\left[-\int_0^t
+    \bigl(F_K^m(\tau)-\delta-\nu\bigr)\,d\tau\right]=0 .
+  \]
+
+  \hyperlink{efficiencycondition}{\beamerbutton{Back to Efficiency Condition}}
+\end{frame}
+
+\begin{frame}[label=appendixtfp]{Deriving Formula (8): TFP and Relative Prices}
+  \scriptsize
+  With
+  \[
+    F^i(n_ik_i,n_i)=A_in_if(k_i),
+  \]
+  the marginal products are
+  \[
+    F_K^i=A_if'(k_i),\qquad
+    F_N^i=A_i\left[f(k_i)-k_if'(k_i)\right].
+  \]
+
+  Hence
+  \[
+    \frac{F_N^i}{F_K^i}
+    =
+    \frac{f(k_i)}{f'(k_i)}-k_i
+    \equiv \Phi(k_i),
+    \qquad
+    \Phi'(k)=\frac{-f(k)f''(k)}{[f'(k)]^2}>0 .
+  \]
+
+  Formula (5) implies $F_N^i/F_K^i=F_N^m/F_K^m$. Since $\Phi$ is strictly
+  increasing,
+  \[
+    k_i=k_m.
+  \]
+  Together with $\sum_i n_ik_i=k$, this gives $k_i=k$ for all $i$. Therefore
+  \[
+    \frac{v_i}{v_m}
+    =
+    \frac{F_K^m}{F_K^i}
+    =
+    \frac{A_mf'(k)}{A_if'(k)}
+    =
+    \frac{A_m}{A_i}.
+  \]
+  Decentralized consumer optimality gives $p_i/p_m=v_i/v_m$, so
+  \[
+    \boxed{
+    k_i=k,\qquad
+    \frac{p_i}{p_m}=\frac{v_i}{v_m}=\frac{A_m}{A_i},
+    \quad \forall i
+    }.
+  \]
+
+  \hyperlink{tfpprices}{\beamerbutton{Back to TFP Gaps}}
+\end{frame}
+
+\begin{frame}[label=appendixexpenditure]{Deriving Expenditure Ratio: Formula (10)}
+  \scriptsize
+  CES aggregation implies
+  \[
+    \phi=
+    \left(\sum_{j=1}^m
+    \omega_j c_j^{(\varepsilon-1)/\varepsilon}\right)^{
+    \varepsilon/(\varepsilon-1)} .
+  \]
+  The marginal-rate-of-substitution condition is
+  \[
+    \frac{p_i}{p_m}
+    =
+    \frac{v_i}{v_m}
+    =
+    \frac{\omega_i}{\omega_m}
+    \left(\frac{c_i}{c_m}\right)^{-1/\varepsilon}.
+  \]
+
+  Rearranging gives relative quantities:
+  \[
+    \frac{c_i}{c_m}
+    =
+    \left(\frac{\omega_i}{\omega_m}\right)^\varepsilon
+    \left(\frac{p_i}{p_m}\right)^{-\varepsilon}.
+  \]
+  Multiplying by $p_i/p_m$ gives relative expenditures:
+  \[
+    \frac{p_ic_i}{p_mc_m}
+    =
+    \left(\frac{\omega_i}{\omega_m}\right)^\varepsilon
+    \left(\frac{p_i}{p_m}\right)^{1-\varepsilon}.
+  \]
+  Using formula (8), $p_i/p_m=A_m/A_i$, yields
+  \[
+    \boxed{
+    \frac{p_ic_i}{p_mc_m}
+    =
+    \left(\frac{\omega_i}{\omega_m}\right)^\varepsilon
+    \left(\frac{A_m}{A_i}\right)^{1-\varepsilon}
+    \equiv x_i
+    }.
+  \]
+
+  \hyperlink{expenditureratio}{\beamerbutton{Back to Expenditure Ratio}}
+\end{frame}
+
+\begin{frame}[label=appendixemploymentshares]{Deriving Employment Shares: Formulas (13)--(14)}
+  \scriptsize
+  Static efficiency gives $k_i=k$ and $p_i/p_m=A_m/A_i$. With
+  $F^i=A_in_if(k)$,
+  \[
+    \frac{p_i}{p_m}F^i
+    =
+    \frac{A_m}{A_i}A_in_if(k)
+    =
+    A_mn_if(k),
+    \qquad
+    y=\sum_{j=1}^m\frac{p_j}{p_m}F^j=A_mf(k).
+  \]
+  Hence
+  \[
+    n_i=\frac{(p_i/p_m)F^i}{y}.
+  \]
+
+  For $i\neq m$, $F^i=c_i$ and
+  \[
+    \frac{x_i}{X}
+    =
+    \frac{(p_i/p_m)c_i}{c}.
+  \]
+  Therefore
+  \[
+    n_i
+    =
+    \frac{(p_i/p_m)c_i}{c}\frac{c}{y}
+    =
+    \boxed{\frac{x_i}{X}\frac{c}{y}},
+    \qquad i\neq m .
+  \]
+
+  Manufacturing follows from $\sum_i n_i=1$:
+  \[
+    n_m
+    =
+    1-\sum_{i\neq m}\frac{x_i}{X}\frac{c}{y}
+    =
+    \boxed{
+    \frac{x_m}{X}\frac{c}{y}
+    +\left(1-\frac{c}{y}\right)} .
+  \]
+
+  \hyperlink{employmentshares}{\beamerbutton{Back to Employment Shares}}
+\end{frame}
+
+\begin{frame}[label=appendixrelative]{Deriving Relative Employment: Formulas (15)--(17)}
+  \scriptsize
   Start from
   \[
     n_i=\frac{x_i}{X}\frac{c}{y},\qquad
@@ -18,8 +276,162 @@
       &=(1-\varepsilon)(\gamma_j-\gamma_i).
   \end{align*}
 
-  \vspace{0.10cm}
-  \hyperlink{relativeemployment}{\beamerbutton{Back}}
+  Formula (8) gives
+  \[
+    \frac{p_i}{p_j}
+    =
+    \frac{A_j}{A_i}
+    \quad\Longrightarrow\quad
+    \frac{\dot p_i}{p_i}-\frac{\dot p_j}{p_j}
+    =
+    \gamma_j-\gamma_i .
+  \]
+  Combining the two expressions yields formula (17).
+
+  \hyperlink{relativeemployment}{\beamerbutton{Back to Proposition 1}}
+\end{frame}
+
+\begin{frame}[label=appendixindividual]{Deriving Individual Employment Dynamics: Formula (18)}
+  \scriptsize
+  From formula (10),
+  \[
+    \frac{\dot x_i}{x_i}
+    =
+    (1-\varepsilon)(\gamma_m-\gamma_i).
+  \]
+  Since $X=\sum_i x_i$,
+  \[
+    \frac{\dot X}{X}
+    =
+    \sum_i\frac{x_i}{X}\frac{\dot x_i}{x_i}
+    =
+    (1-\varepsilon)(\gamma_m-\gammabar),
+    \qquad
+    \gammabar\equiv\sum_i\frac{x_i}{X}\gamma_i .
+  \]
+
+  For each consumption sector $i\neq m$,
+  \[
+    n_i=\frac{x_i}{X}\frac{c}{y}.
+  \]
+  Log-differentiate:
+  \[
+    \frac{\dot n_i}{n_i}
+    =
+    \frac{\dot x_i}{x_i}
+    -\frac{\dot X}{X}
+    +\frac{\dot{(c/y)}}{c/y}
+    =
+    \boxed{
+    \frac{\dot{(c/y)}}{c/y}
+    +(1-\varepsilon)(\gammabar-\gamma_i)}
+    \quad i\neq m .
+  \]
+
+  \hyperlink{individualdynamics}{\beamerbutton{Back to Individual Dynamics}}
+\end{frame}
+
+\begin{frame}[label=appendixmanufacturing]{Deriving Manufacturing Employment Dynamics: Formula (19)}
+  \scriptsize
+  Decompose manufacturing employment as
+  \[
+    n_m=a_m+b_m,\qquad
+    a_m=\frac{x_m}{X}\frac{c}{y},\qquad
+    b_m=1-\frac{c}{y}.
+  \]
+  The two components grow at
+  \[
+    \frac{\dot a_m}{a_m}
+    =
+    \frac{\dot{(c/y)}}{c/y}-\frac{\dot X}{X}
+    =
+    \frac{\dot{(c/y)}}{c/y}
+    +(1-\varepsilon)(\gammabar-\gamma_m),
+    \qquad
+    \frac{\dot b_m}{b_m}
+    =
+    -\frac{\dot{(c/y)}}{1-c/y}.
+  \]
+
+  Because the growth rate of a sum is a component-share-weighted average,
+  \[
+    \frac{\dot n_m}{n_m}
+    =
+    \frac{\dot a_m}{a_m}\frac{a_m}{n_m}
+    +
+    \frac{\dot b_m}{b_m}\frac{b_m}{n_m}.
+  \]
+  Substituting $a_m$ and $b_m$ gives
+  \[
+    \boxed{
+    \frac{\dot n_m}{n_m}
+    =
+    \left[
+    \frac{\dot{(c/y)}}{c/y}
+    +(1-\varepsilon)(\gammabar-\gamma_m)
+    \right]\frac{(c/y)(x_m/X)}{n_m}
+    -\frac{\dot{(c/y)}}{1-c/y}\frac{1-c/y}{n_m}} .
+  \]
+
+  \hyperlink{individualdynamics}{\beamerbutton{Back to Individual Dynamics}}
+\end{frame}
+
+\begin{frame}[label=appendixnominal]{Deriving Nominal and Real Share Relations}
+  \scriptsize
+  With $k_i=k$ and $p_i/p_m=A_m/A_i$,
+  \[
+    \frac{p_iF^i}{p_my}
+    =
+    \frac{(A_m/A_i)A_in_if(k)}{A_mf(k)}
+    =
+    \boxed{n_i}.
+  \]
+  Thus nominal output-share growth follows employment-share growth:
+  \[
+    \frac{\dot n_i}{n_i}-\frac{\dot n_j}{n_j}
+    =
+    (1-\varepsilon)
+    \left(\frac{\dot p_i}{p_i}-\frac{\dot p_j}{p_j}\right)
+    =
+    (1-\varepsilon)(\gamma_j-\gamma_i).
+  \]
+
+  Nominal consumption shares are
+  \[
+    \frac{p_ic_i}{\sum_{\ell=1}^m p_\ell c_\ell}
+    =
+    \frac{(p_i/p_m)c_i}{\sum_{\ell=1}^m(p_\ell/p_m)c_\ell}
+    =
+    \boxed{\frac{x_i}{X}} .
+  \]
+  Their relative growth is the same:
+  \[
+    \frac{d}{dt}\log\frac{x_i/X}{x_j/X}
+    =
+    \frac{\dot x_i}{x_i}-\frac{\dot x_j}{x_j}
+    =
+    (1-\varepsilon)(\gamma_j-\gamma_i).
+  \]
+
+  CES demand gives
+  \[
+    \frac{c_i}{c_j}
+    =
+    \left(\frac{\omega_i}{\omega_j}\right)^\varepsilon
+    \left(\frac{p_i}{p_j}\right)^{-\varepsilon}
+    =
+    \left(\frac{\omega_i}{\omega_j}\right)^\varepsilon
+    \left(\frac{A_i}{A_j}\right)^\varepsilon .
+  \]
+  Therefore
+  \[
+    \boxed{
+    \frac{\dot c_i}{c_i}-\frac{\dot c_j}{c_j}
+    =
+    \varepsilon(\gamma_i-\gamma_j)} .
+  \]
+
+  \hyperlink{nominalshares}{\beamerbutton{Back to Nominal Shares}}
 \end{frame}
 
 \begin{frame}[label=appendixbalanced]{Why $\theta=1$ Removes the Aggregate Distortion}
