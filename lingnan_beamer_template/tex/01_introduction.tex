@@ -1,9 +1,109 @@
-\section{Question and Contribution}
+\section{Introduction}
 
-\begin{frame}{Structural Change Is Not Aggregate Noise}
+\begin{frame}{Course Positioning}
   \small
   \begin{columns}[c,onlytextwidth]
+    \begin{column}{0.34\textwidth}
+      \begin{tikzpicture}[
+        chapter/.style={
+          draw=lingnangrey!60,
+          fill=lingnangrey!10,
+          rounded corners,
+          text width=3.55cm,
+          minimum height=0.88cm,
+          align=left,
+          inner sep=5pt,
+          font=\scriptsize
+        },
+        activechapter/.style={
+          chapter,
+          draw=darkred!80!black,
+          fill=darkred!8,
+          line width=0.8pt,
+          font=\scriptsize\bfseries
+        }
+      ]
+        \node[activechapter] at (0,1.05)
+          {第 1 章\\价格效应与收入效应};
+        \node[chapter] at (0,-0.15)
+          {第 2 章\\要素结构与结构转型};
+      \end{tikzpicture}
+    \end{column}
+    \begin{column}{0.28\textwidth}
+      \centering
+      \includegraphics[height=5.35cm,keepaspectratio]{image/课本封面.jpg}
+    \end{column}
+    \begin{column}{0.34\textwidth}
+      \begin{tikzpicture}[
+        chapter/.style={
+          draw=lingnangrey!60,
+          fill=lingnangrey!10,
+          rounded corners,
+          text width=3.55cm,
+          minimum height=0.88cm,
+          align=left,
+          inner sep=5pt,
+          font=\scriptsize
+        },
+        activechapter/.style={
+          chapter,
+          draw=darkred!80!black,
+          fill=darkred!8,
+          line width=0.8pt,
+          font=\scriptsize\bfseries
+        },
+        ellipsis/.style={
+          text width=3.55cm,
+          align=center,
+          font=\large\bfseries,
+          text=black!60
+        }
+      ]
+        \node[chapter] at (0,1.35)
+          {第 3 章\\需求结构与结构转型};
+        \node[activechapter] at (0,0.15)
+          {第 4 章\\技术结构与结构转型};
+        \node[ellipsis] at (0,-1.00) {$\cdots$};
+      \end{tikzpicture}
+    \end{column}
+  \end{columns}
+\end{frame}
+
+\begin{frame}{Structural Change vs. Balanced Growth}
+  \small
+  \begin{columns}[T,onlytextwidth]
+    \begin{column}{0.47\textwidth}
+      {\color{darkred!80!black}\bfseries Kaldor's Stylized Facts}
+
+      \vspace{0.18cm}
+      \begin{tikzpicture}[
+        fact/.style={
+          draw=lingnangrey!60,
+          fill=lingnangrey!10,
+          rounded corners,
+          minimum width=2.05cm,
+          minimum height=0.74cm,
+          align=center,
+          font=\scriptsize
+        }
+      ]
+        \node[fact] at (0.00,2.25) {Labour\\productivity};
+        \node[fact] at (2.42,2.25) {Capital\\deepening};
+        \node[fact] at (0.00,1.30) {Stable\\return};
+        \node[fact] at (2.42,1.30) {Constant\\$K/Y$};
+        \node[fact] at (0.00,0.35) {Stable\\factor shares};
+        \node[fact] at (2.42,0.35) {Growth-rate\\differences};
+      \end{tikzpicture}
+
+      \vspace{0.20cm}
+      {\scriptsize
+      \textbf{Theory response:} Solow; Ramsey--Cass--Koopmans;
+      endogenous growth models; sectoral proportional-growth BGP.}
+    \end{column}
     \begin{column}{0.50\textwidth}
+      {\color{darkred!80!black}\bfseries Kuznets Facts}
+
+      \vspace{0.12cm}
       \begin{tikzpicture}[x=1cm,y=1cm]
         \draw[->,thick] (0,0) -- (5.0,0) node[right] {\scriptsize time};
         \draw[->,thick] (0,0) -- (0,3.2) node[above] {\scriptsize employment share};
@@ -14,80 +114,95 @@
         \node[anchor=west] at (3.00,1.40) {\scriptsize manufacturing};
         \node[anchor=west] at (3.15,2.48) {\scriptsize services};
       \end{tikzpicture}
+
+      \vspace{0.12cm}
+      {\scriptsize
+      \textbf{Theory response:} Baumol's cost disease; Baumol (1967);
+      Baumol et al. (1985).}
     \end{column}
-    \begin{column}{0.48\textwidth}
+  \end{columns}
+\end{frame}
+
+\begin{frame}{Nonhomothetic Preferences}
+  \small
+  \begin{columns}[T,onlytextwidth]
+    \begin{column}{0.44\textwidth}
+      {\color{darkred!80!black}\bfseries Engel law}
+
+      \vspace{0.10cm}
+      \resizebox{0.98\linewidth}{!}{%
+      \begin{tikzpicture}[x=1cm,y=1cm]
+        \draw[->,thick] (0,0) -- (5.0,0) node[right] {\scriptsize income};
+        \draw[->,thick] (0,0) -- (0,3.1) node[above] {\scriptsize expenditure share};
+        \draw[darkred!80!black,very thick] (0.25,2.75) .. controls (1.30,2.00) and (3.05,1.10) .. (4.65,0.50);
+        \node[anchor=west] at (3.12,0.58) {\scriptsize food};
+      \end{tikzpicture}
+      }
+
+      \vspace{0.10cm}
+      {\scriptsize
+      \textbf{Engel law:}
+      \[
+        \eta_{\mathrm{food}}<1,\qquad
+        \eta_{\mathrm{manufacturing}},\,\eta_{\mathrm{services}}\ge 1 .
+      \]
+      }
+    \end{column}
+    \begin{column}{0.53\textwidth}
       \begin{itemize}
-        \item Kuznets and Maddison document a long-run shift from agriculture
-          toward manufacturing and services.
-        \item Baumol's cost disease predicts rising relative prices in
-          stagnant sectors.
-        \item Ngai and Pissarides emphasize a technological explanation:
-          unequal sectoral TFP growth is enough to move labor shares.
+        \setlength{\itemsep}{0.28cm}
+        \item \focus{Matsuyama (1992)}
+
+          Stone--Geary demand $+$ learning-by-doing
+          $\Longrightarrow$ closed vs. open economy outcomes.
+        \item \focus{Echevarria (1997); Laitner (2000)}
+
+          Income-elastic sectoral demand $\Longrightarrow$ reallocation.
+        \item \focus{Cost}
+
+          Specific, sometimes \emph{ad hoc}, preference restrictions.
       \end{itemize}
     \end{column}
   \end{columns}
-
-  \vspace{0.12cm}
-  \slidecite{Evidence discussed in the paper: Kuznets (1966), Maddison (1980), Baumol et al. (1985).}
 \end{frame}
 
-\begin{frame}{Position in the Literature}
-  \footnotesize
-  \begin{tabularx}{\textwidth}{@{}p{0.27\textwidth}X X@{}}
-    \toprule
-    Approach & Source of structural change & Relation to this paper \\
-    \midrule
-    Nonhomothetic preferences
-      & Different income elasticities change demand composition as income grows.
-      & This paper does not rely on Stone-Geary preferences or sector-specific income elasticities. \\
-    Technology-based explanation
-      & Different sectoral TFP growth rates change relative prices and expenditure shares.
-      & This is the paper's main mechanism under CES final goods and homothetic preferences. \\
-    Balanced-growth restrictions
-      & Preferences and technologies are often tied together by special parameter restrictions.
-      & Ngai and Pissarides keep preference and technology parameters largely separate. \\
-    \bottomrule
-  \end{tabularx}
+\begin{frame}{Kongsamut--Rebelo--Xie (2001): Breakthrough and Cost}
+  \small
+  \begin{columns}[c,onlytextwidth]
+    \begin{column}{0.45\textwidth}
+      {\color{darkred!80!black}\bfseries Stone--Geary channel}
 
-  \vspace{0.35cm}
-  \begin{alertblock}{One-sentence contribution}
-    If final goods are poor substitutes, labor moves toward low-TFP-growth
-    sectors; if intertemporal utility is logarithmic, this movement is
-    consistent with aggregate balanced growth.
-  \end{alertblock}
-\end{frame}
+      \vspace{0.12cm}
+      \[
+        U=\sum_i \beta_i\log(C_i-\bar C_i)
+      \]
 
-\begin{frame}{Central Question}
-  \begin{block}{What does the paper explain?}
-    Sectoral TFP grows at different rates. How does this generate long-run
-    shifts in employment shares, and can those shifts coexist with aggregate
-    balanced growth?
-  \end{block}
-
-  \vspace{0.15cm}
-  \begin{columns}[T,onlytextwidth]
-    \begin{column}{0.48\textwidth}
-      \begin{alertblock}{Sectoral facts}
-        \begin{itemize}
-          \item Employment shares move over long horizons.
-          \item Low-productivity-growth sectors become relatively expensive.
-          \item Nominal shares move more than real consumption shares.
-        \end{itemize}
-      \end{alertblock}
+      \vspace{0.18cm}
+      \begin{tikzpicture}[
+        node distance=0.35cm,
+        krxstep/.style={draw=darkred!80!black,thick,rounded corners,align=center,text width=3.45cm,minimum height=0.68cm,font=\scriptsize},
+        arr/.style={-{Latex[length=2mm]},thick,darkred!80!black}
+      ]
+        \node[krxstep] (subsistence) {Subsistence terms\\$\bar C_i$};
+        \node[krxstep,below=of subsistence] (demand) {Income effects\\move sectoral demand};
+        \node[krxstep,below=of demand] (bgp) {Structural change\\with aggregate BGP};
+        \draw[arr] (subsistence) -- (demand);
+        \draw[arr] (demand) -- (bgp);
+      \end{tikzpicture}
     \end{column}
-    \begin{column}{0.48\textwidth}
-      \begin{block}{Aggregate facts}
-        \begin{itemize}
-          \item Output, consumption, and capital can grow together.
-          \item Aggregate ratios may remain roughly constant.
-          \item The goal is to reconcile reallocation with Kaldor facts.
-        \end{itemize}
-      \end{block}
+    \begin{column}{0.52\textwidth}
+      \large
+      \begin{itemize}
+        \setlength{\itemsep}{0.36cm}
+        \item \focus{Breakthrough:} Kuznets-style reallocation can coexist
+          with Kaldor-style aggregate ratios.
+        \item \focus{Cost:} subsistence demand parameters must be tied to
+          sectoral productivity growth.
+        \item \focus{Problem:} preference parameters and technology
+          parameters are no longer independent.
+      \end{itemize}
     \end{column}
   \end{columns}
-
-  \vspace{0.12cm}
-  \slidecite{Source: Ngai and Pissarides, American Economic Review, 2007.}
 \end{frame}
 
 \begin{frame}{Roadmap of the Argument}

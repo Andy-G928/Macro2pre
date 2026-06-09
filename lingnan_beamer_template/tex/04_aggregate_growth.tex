@@ -43,30 +43,6 @@
   model and generally time-varying under structural change.
 \end{frame}
 
-\begin{frame}{Efficiency Units and the Ramsey Analogy}
-  \small
-  Define
-  \begin{equation*}
-    c_e\equiv cA_m^{-1/(1-\alpha)},\qquad
-    k_e\equiv kA_m^{-1/(1-\alpha)},\qquad
-    g_m\equiv\frac{\gamma_m}{1-\alpha}.
-  \end{equation*}
-
-  \vspace{0.10cm}
-  If
-  \begin{equation*}
-    \psi\equiv(\theta-1)(\gamma_m-\gammabar)
-  \end{equation*}
-  is constant, the aggregate system becomes a Ramsey-style two-dimensional
-  system:
-  \begin{align*}
-    \frac{\dot c_e}{c_e}
-      &=\frac{\alpha k_e^{\alpha-1}+\psi-(\delta+\nu+\rho)}{\theta}-g_m,\\
-    \dot k_e
-      &=k_e^\alpha-c_e-(g_m+\delta+\nu)k_e .
-  \end{align*}
-\end{frame}
-
 \begin{frame}[label=balancedgrowth]{Proposition 4: Conditions for Balanced Growth with Structural Change}
   \small
   \begin{alertblock}{Necessary and sufficient conditions}
@@ -95,26 +71,6 @@
   \hyperlink{appendixbalanced}{\beamerbutton{Intuition}}
 \end{frame}
 
-\begin{frame}{Economic Intuition for Log Intertemporal Utility}
-  \small
-  \begin{block}{Balanced growth requirement}
-    Aggregate balanced growth requires consumption to remain a constant
-    fraction of aggregate wealth.
-  \end{block}
-
-  \vspace{0.15cm}
-  \begin{itemize}
-    \item The relevant real return includes a relative-price component:
-      $\gamma_m-\gammabar$.
-    \item Under structural change, $\gammabar$ changes because expenditure
-      weights move across sectors.
-    \item If $\theta\neq1$, consumption reacts to this changing return, so the
-      aggregate path is not exactly balanced.
-    \item If $\theta=1$, consumption is independent of the interest rate in the
-      required way; the aggregate economy behaves like a one-sector Ramsey model.
-  \end{itemize}
-\end{frame}
-
 \begin{frame}{Proposition 5: Long-Run Employment Shares}
   \small
   Let sector $l$ be the limiting sector:
@@ -140,59 +96,4 @@
     \item Other consumption sectors may decline monotonically or display
       hump-shaped employment shares.
   \end{itemize}
-\end{frame}
-
-\begin{frame}{Why Hump-Shaped Employment Shares Can Arise}
-  \small
-  For $\varepsilon<1$, Lemma A3 gives:
-  \begin{equation*}
-    \frac{d\gammabar}{dt}
-    =
-    -(1-\varepsilon)
-    \sum_i\frac{x_i}{X}(\gamma_i-\gammabar)^2
-    \leq 0 .
-  \end{equation*}
-
-  \vspace{0.12cm}
-  \begin{columns}[T,onlytextwidth]
-    \begin{column}{0.50\textwidth}
-      \begin{tikzpicture}[x=1cm,y=1cm]
-        \draw[->,thick] (0,0) -- (5,0) node[right] {\scriptsize time};
-        \draw[->,thick] (0,0) -- (0,2.7) node[above] {\scriptsize employment share};
-        \draw[darkred!80!black,very thick] (0.2,0.3) .. controls (1.6,2.2) and (3.2,2.0) .. (4.7,0.7);
-        \node[anchor=west] at (2.1,2.25) {\scriptsize intermediate-growth sector};
-      \end{tikzpicture}
-    \end{column}
-    \begin{column}{0.48\textwidth}
-      \begin{itemize}
-        \item A sector expands if $\gamma_i<\gammabar$.
-        \item As $\gammabar$ declines, fewer sectors satisfy this condition.
-        \item A sector can first expand and then contract once $\gammabar$
-          falls below its own TFP growth rate.
-      \end{itemize}
-    \end{column}
-  \end{columns}
-\end{frame}
-
-\begin{frame}{What if $\theta\neq1$?}
-  \small
-  \begin{block}{Exact balanced growth fails}
-    When $\theta\neq1$, the Euler term
-    \[
-      \psi=(\theta-1)(\gamma_m-\gammabar)
-    \]
-    is time-varying during structural change.
-  \end{block}
-
-  \vspace{0.12cm}
-  \begin{alertblock}{But the deviation is small and asymptotic}
-    \begin{equation*}
-      \dot{\psi}
-      =
-      (\theta-1)(1-\varepsilon)
-      \sum_i\frac{x_i}{X}(\gamma_i-\gammabar)^2 .
-    \end{equation*}
-    Since TFP growth rates are small numbers, this term is second order relative
-    to the employment-share movements.
-  \end{alertblock}
 \end{frame}

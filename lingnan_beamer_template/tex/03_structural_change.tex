@@ -248,30 +248,76 @@
 \end{frame}
 
 \begin{frame}{Mechanism Review}
-  \small
-  \begin{center}
-    \resizebox{\textwidth}{!}{%
-    \begin{tikzpicture}[
-      node distance=0.7cm,
-      box/.style={draw=black!50,rounded corners,align=center,text width=0.22\textwidth,minimum height=0.9cm},
-      redbox/.style={draw=darkred!80!black,fill=lingnangrey!35!white,rounded corners,align=center,text width=0.22\textwidth,minimum height=0.9cm},
-      arr/.style={-{Latex[length=2mm]},thick,darkred!80!black}
-    ]
-      \node[redbox] (tfp) {Sectoral TFP gap\\$\gamma_i\neq\gamma_j$};
-      \node[box,right=of tfp] (price) {Relative price changes\\$\dot p_i/p_i-\dot p_j/p_j$};
-      \node[box,right=of price] (demand) {CES demand response\\controlled by $\varepsilon$};
-      \node[redbox,right=of demand] (labor) {Employment-share dynamics\\$\dot n_i/n_i-\dot n_j/n_j$};
-      \draw[arr] (tfp) -- (price);
-      \draw[arr] (price) -- (demand);
-      \draw[arr] (demand) -- (labor);
-    \end{tikzpicture}
-    }
-  \end{center}
+  \scriptsize
+  \setlength{\abovedisplayskip}{2pt}
+  \setlength{\belowdisplayskip}{2pt}
+  \begin{tikzpicture}[
+    x=1cm,y=1cm,
+    reviewstep/.style={draw=black!45,rounded corners,align=center,
+      text width=0.29\textwidth,minimum height=1.23cm,inner sep=3pt,font=\scriptsize},
+    keyreview/.style={reviewstep,draw=darkred!80!black,thick,fill=lingnangrey!35!white}
+  ]
+    \node[reviewstep] (problem) at (0,4.05)
+      {\textbf{1. Planner problem}\\[-0.02cm]
+      $\displaystyle U=\int_0^\infty e^{-\rho t}v(c)\,dt$\\[-0.02cm]
+      resources and feasibility};
+    \node[reviewstep] (hamiltonian) at (4.55,4.05)
+      {\textbf{2. Hamiltonian}\\[-0.02cm]
+      $\displaystyle \mathcal H^P=e^{-\rho t}v+q[\cdots]$\\[-0.01cm]
+      $\displaystyle +\sum_i\mu_i[\cdots]+\lambda[\cdots]+\eta[\cdots]$};
+    \node[reviewstep] (focs) at (9.10,4.05)
+      {\textbf{3. Optimization}\\[-0.02cm]
+      $\displaystyle \partial_c\mathcal H^P=0,\quad
+      \partial_{n_i,k_i}\mathcal H^P=0$\\[-0.01cm]
+      $\displaystyle \dot q=-\partial_k\mathcal H^P$};
 
-  \vspace{0.25cm}
-  \begin{alertblock}{Main intuition for $\varepsilon<1$}
-    Productivity growth makes a sector cheaper. But if goods are poor
-    substitutes, demand does not rise enough to absorb all extra output, so
-    labor leaves the fast-growing sector.
-  \end{alertblock}
+    \node[reviewstep] (efficiency) at (0,2.32)
+      {\textbf{4. Efficiency conditions}\\[-0.02cm]
+      $\displaystyle \frac{v_i}{v_m}
+      =\frac{F_K^m}{F_K^i}
+      =\frac{F_N^m}{F_N^i}$\\[-0.01cm]
+      $\displaystyle -\dot v_m/v_m=F_K^m-(\delta+\rho+\nu)$};
+    \node[keyreview] (prices) at (4.55,2.32)
+      {\textbf{5. Relative prices}\\[-0.02cm]
+      $\displaystyle
+      \frac{p_i}{p_m}
+      =
+      \frac{v_i}{v_m}
+      =
+      \frac{A_m}{A_i}$\\[-0.01cm]
+      $\displaystyle \forall i$};
+    \node[keyreview] (expend) at (9.10,2.32)
+      {\textbf{6. Expenditure state}\\[-0.02cm]
+      $\displaystyle
+      \frac{p_ic_i}{p_mc_m}
+      =
+      \left(\frac{\omega_i}{\omega_m}\right)^\varepsilon$\\[-0.01cm]
+      $\displaystyle \times
+      \left(\frac{A_m}{A_i}\right)^{1-\varepsilon}
+      \equiv x_i$};
+
+    \node[keyreview] (shares) at (0,0.59)
+      {\textbf{7. Relative dynamics}\\[-0.02cm]
+      $\displaystyle \frac{\dot n_i}{n_i}-\frac{\dot n_j}{n_j}$\\[-0.01cm]
+      $\displaystyle =(1-\varepsilon)(\gamma_j-\gamma_i)$};
+    \node[keyreview] (dynamics) at (4.55,0.59)
+      {\textbf{8. Employment dynamics}\\[-0.02cm]
+      $\displaystyle
+      \frac{\dot n_i}{n_i}
+      =\frac{\dot{(c/y)}}{c/y}$\\[-0.01cm]
+      $\displaystyle +(1-\varepsilon)(\gammabar-\gamma_i),\quad i\neq m$};
+    \node[reviewstep] (nominal) at (9.10,0.59)
+      {\textbf{9. Nominal / real split}\\[-0.02cm]
+      $\displaystyle \frac{p_iF^i}{p_my}=n_i,\quad
+      \frac{p_ic_i}{\sum_jp_jc_j}=\frac{x_i}{X}$\\[-0.01cm]
+      real shares move with $\varepsilon$};
+  \end{tikzpicture}
+
+  \vspace{0.10cm}
+  \begin{center}
+    \focus{Planner} $\Longrightarrow$
+    \focus{TFP-price state} $\Longrightarrow$
+    \focus{expenditure state} $\Longrightarrow$
+    \focus{employment and nominal shares}
+  \end{center}
 \end{frame}
