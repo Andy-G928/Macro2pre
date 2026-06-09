@@ -150,62 +150,80 @@
   \end{center}
 \end{frame}
 
-\begin{frame}[label=tfpprices]{TFP Gaps Become Relative Prices}
+\begin{frame}[label=tfpprices]{TFP Gaps \& Relative Prices}
   \scriptsize
-  \begin{center}
-    \hyperlink{appendixstatic}{%
-      \(\displaystyle
-      \frac{v_i}{v_m}
-      =
-      \frac{F_K^m}{F_K^i}
-      =
-      \frac{F_N^m}{F_N^i}
-      \quad \forall i.
-      \qquad (5)
-      \)}
-  \end{center}
+  \begin{columns}[T,onlytextwidth]
+    \begin{column}{0.45\textwidth}
+      {\bfseries Sectoral technologies}
+      \vspace{0.08cm}
+      \resizebox{\linewidth}{!}{%
+      \begin{tikzpicture}[
+        x=1cm,y=1cm,
+        sector/.style={draw=darkred!80!black,thick,rounded corners,align=center,
+          text width=4.45cm,minimum height=1.16cm,inner sep=5pt},
+        output/.style={draw=black!55,rounded corners,align=center,
+          text width=2.35cm,minimum height=0.68cm,inner sep=3pt},
+        arr/.style={-{Latex[length=2mm]},thick,darkred!80!black}
+      ]
+        \node[sector] (sectori) at (0,2.35)
+          {Sector $i$\\$F^i=A_i n_i f(k_i)$\\$\dot A_i/A_i=\gamma_i$};
+        \node[sector] (sectorm) at (0,0.80)
+          {Sector $m$\\$F^m=A_m n_m f(k_m)$\\$\dot A_m/A_m=\gamma_m$};
+        \node[output] (gap) at (3.85,1.57) {TFP gap\\$\displaystyle A_m/A_i$};
+        \draw[arr] (sectori.east) -- (gap.west);
+        \draw[arr] (sectorm.east) -- (gap.west);
+        \node[align=left,text width=5.35cm,anchor=west] at (-2.20,-0.42)
+          {Same CRS technology $f(\cdot)$; sectoral paths differ only through $A_i(t)$.};
+      \end{tikzpicture}}
 
-  \begin{block}{Sectoral technologies}
-    \vspace{-0.16cm}
-    \begin{equation*}
-      F^i=A_i F(n_i k_i,n_i),\qquad
-      \dot{A}_i/A_i=\gamma_i .
-    \end{equation*}
-    \vspace{-0.34cm}
-  \end{block}
+      \vspace{0.16cm}
+      \begin{itemize}
+        \setlength\itemsep{0.08cm}
+        \item Static efficiency equalizes factor ratios: $k_i=k$.
+        \item Relative prices carry sectoral TFP gaps.
+      \end{itemize}
+    \end{column}
+    \begin{column}{0.53\textwidth}
+      \begin{block}{Static efficiency}
+        \vspace{-0.16cm}
+        \[
+          \hyperlink{appendixstatic}{%
+          \frac{v_i}{v_m}
+          =
+          \frac{F_K^m}{F_K^i}
+          =
+          \frac{F_N^m}{F_N^i}
+          \quad \forall i.
+          \qquad (5)}
+        \]
+        \vspace{-0.34cm}
+      \end{block}
 
-  \vspace{0.04cm}
-  \begin{equation*}
-    \begin{aligned}
-      \frac{F_N^i}{F_K^i}=\frac{F_N^m}{F_K^m}
-      &\Longrightarrow
-      \frac{f(k_i)}{f'(k_i)}-k_i
-      =
-      \frac{f(k_m)}{f'(k_m)}-k_m
-      \Longrightarrow k_i=k,\\[0.08cm]
-      \frac{v_i}{v_m}=\frac{F_K^m}{F_K^i}
-      &\Longrightarrow
-      \frac{v_i}{v_m}
-      =
-      \frac{A_m f'(k)}{A_i f'(k)}
-      =
-      \frac{A_m}{A_i}.
-    \end{aligned}
-  \end{equation*}
+      \vspace{0.16cm}
+      \begin{alertblock}{Formula (8)}
+        \vspace{-0.16cm}
+        \[
+          \hyperlink{appendixtfp}{%
+          k_i=k,\qquad
+          \frac{p_i}{p_m}=\frac{v_i}{v_m}=\frac{A_m}{A_i},
+          \quad \forall i.
+          \qquad (8)}
+        \]
+        \vspace{-0.34cm}
+      \end{alertblock}
 
-  \begin{alertblock}{Static efficiency implies}
-    \vspace{-0.18cm}
-    \begin{center}
-      \hyperlink{appendixtfp}{%
-        \(\displaystyle
-        k_i=k,\qquad
-        \frac{p_i}{p_m}=\frac{v_i}{v_m}=\frac{A_m}{A_i},
-        \quad \forall i.
-        \qquad (8)
-        \)}
-    \end{center}
-    \vspace{-0.28cm}
-  \end{alertblock}
+      \vspace{0.16cm}
+      \begin{center}
+        \begin{tikzpicture}[x=1cm,y=1cm]
+          \node[draw=darkred!80!black,rounded corners,align=center,inner sep=4pt]
+            (tfp) at (0,0) {\scriptsize faster $A_i$\\[-0.02cm] lower $p_i$};
+          \node[draw=black!55,rounded corners,align=center,inner sep=4pt]
+            (alloc) at (3.3,0) {\scriptsize prices guide\\[-0.02cm] reallocation};
+          \draw[-{Latex[length=2mm]},thick,darkred!80!black] (tfp) -- (alloc);
+        \end{tikzpicture}
+      \end{center}
+    \end{column}
+  \end{columns}
 \end{frame}
 
 \begin{frame}{CES Preferences}
@@ -242,7 +260,8 @@
       $
       c_i/c_m=(\omega_i/\omega_m)^\varepsilon(p_i/p_m)^{-\varepsilon}
       $
-      \(\bigl(p_i/p_m=v_i/v_m\bigr)\).
+      \textbf{Tips:}
+      \(\left[\frac{p_i}{p_m}=\frac{v_i}{v_m}\right]\).
     \item Multiplying by $p_i/p_m$ converts relative quantities into
       relative expenditures; substituting $p_i/p_m=A_m/A_i$ gives $x_i$.
     \item \textbf{Consumption expenditure of sector $i$ relative to manufacturing}

@@ -18,10 +18,43 @@
     \[
       \eta=1.
     \]
+    Under this condition, the composite productivity term $A$ is constant over
+    time, and a balanced growth path exists with
+    \[
+      \frac{\dot c}{c}
+      =
+      \alpha A k^{(\alpha+\beta-1)/(1-\beta)}
+      -(\delta+\rho+\nu).
+    \]
+  \end{alertblock}
+\end{frame}
+
+\begin{frame}{Intermediate Goods: Employment Shares}
+  \small
+  \begin{block}{Consumption-sector employment}
+    \begin{equation*}
+      n_i=\frac{x_i}{X}\left(\frac{c}{y}\right)+\varphi_i\beta,
+      \qquad i\neq m .
+    \end{equation*}
+  \end{block}
+
+  \begin{alertblock}{Manufacturing employment}
+    \begin{equation*}
+      n_m=
+      \left[
+      \frac{x_m}{X}\left(\frac{c}{y}\right)+\varphi_m\beta
+      \right]
+      +\left(1-\beta-\frac{c}{y}\right).
+    \end{equation*}
   \end{alertblock}
 
   \vspace{0.10cm}
-  \slidecite{The paper notes that U.S. input-output data show large intermediate-use shares across sectors.}
+  \begin{itemize}
+    \item The structural-change mechanism still applies to the consumption component.
+    \item The intermediate-input term $\varphi_i\beta$ is a constant employment floor.
+    \item In the limit, intermediate-good producers can retain employment even if
+      their final-consumption component vanishes.
+  \end{itemize}
 \end{frame}
 
 \begin{frame}{Extension 2: Many Capital Goods}
@@ -93,57 +126,92 @@
   \end{columns}
 \end{frame}
 
-\begin{frame}{Limitations and Discussion Questions}
-  \small
-  \begin{itemize}
-    \item \focus{No nonhomotheticity}: the model intentionally abstracts from
-      income-elasticity channels that are important in other structural-change models.
-    \item \focus{Identical production shapes}: sectoral differences enter mainly
-      through TFP growth, not through capital intensity or fixed factors.
-    \item \focus{Balanced-growth knife edge}: exact coexistence requires $\theta=1$,
-      though the paper argues deviations may be quantitatively small.
-    \item \focus{Sector classification}: real industries often produce final,
-      intermediate, and capital goods at the same time.
-  \end{itemize}
-
-  \vspace{0.20cm}
-  \begin{alertblock}{Discussion prompt}
-    Is the low final-goods substitution elasticity more plausible at broad
-    sectoral levels than at detailed industry levels?
+\begin{frame}{Later Literature: Income Effects and Price Effects}
+  \scriptsize
+  \begin{alertblock}{What later papers reassess}
+    Ngai and Pissarides (2007) show that sectoral TFP gaps change relative
+    prices; with poor substitutability, labor moves toward low-TFP-growth sectors.
   \end{alertblock}
+
+  \vspace{0.08cm}
+  \begin{columns}[T,onlytextwidth]
+    \begin{column}{0.48\textwidth}
+      \begin{block}{Mechanism assessment}
+        \textbf{Herrendorf, Rogerson, and Valentinyi (2013, 2014)}
+        compare relative-price models with nonhomothetic-preference models:
+        price effects fit U.S. data well, while income effects remain important.
+      \end{block}
+
+      \vspace{0.08cm}
+      \begin{block}{Preference extensions}
+        \textbf{Boppart (2014); Comin, Lashkari, and Mestieri (2021);
+        Alder, Boppart, and M\"uller (2022)}
+        use richer nonhomothetic preferences to capture Engel curves, income
+        effects, and hump-shaped manufacturing employment.
+      \end{block}
+    \end{column}
+    \begin{column}{0.48\textwidth}
+      \begin{alertblock}{Main message}
+        Later literature does not reject Ngai and Pissarides (2007). It combines
+        the relative-price mechanism with income effects and views structural
+        transformation as jointly driven by both forces.
+      \end{alertblock}
+
+      \vspace{0.12cm}
+      \begin{center}
+        \begin{tikzpicture}[x=1cm,y=1cm]
+          \node[draw=darkred!80!black,fill=lingnangrey!35!white,rounded corners,
+            text width=2.55cm,align=center,minimum height=0.85cm] (price)
+            {Relative\\price effect};
+          \node[draw=black!45,fill=white,rounded corners,text width=2.35cm,
+            align=center,minimum height=0.85cm,right=0.65cm of price] (income)
+            {Income\\effect};
+          \node[draw=darkred!80!black,fill=darkred!8!white,rounded corners,
+            text width=5.60cm,align=center,minimum height=0.75cm,
+            below=0.55cm of $(price)!0.5!(income)$] (st)
+            {Structural transformation};
+          \draw[-{Latex[length=2mm]},thick,darkred!80!black] (price) -- (st);
+          \draw[-{Latex[length=2mm]},thick,black!65] (income) -- (st);
+        \end{tikzpicture}
+      \end{center}
+    \end{column}
+  \end{columns}
 \end{frame}
 
-\begin{frame}{Where the Literature Goes Next}
+\begin{frame}{Later Literature: Other Mechanisms}
   \scriptsize
-  \begin{alertblock}{Big question after Ngai and Pissarides (2007)}
-    Is structural change driven mainly by relative-price effects, or do we also
-    need income effects, capital deepening, trade, and input-output linkages?
-  \end{alertblock}
+  \begin{columns}[T,onlytextwidth]
+    \begin{column}{0.49\textwidth}
+      \begin{block}{Capital deepening and factor proportions}
+        \textbf{Acemoglu and Guerrieri (2008)} show that capital deepening and
+        sectoral capital-intensity differences can generate structural
+        transformation even with equal sectoral TFP growth.
+        \textbf{Alvarez-Cuadrado et al. (2017, 2018)} emphasize differences in
+        capital-labor substitution.
+      \end{block}
 
-  \vspace{0.05cm}
-  \begin{tabularx}{\textwidth}{@{}p{0.24\textwidth}p{0.30\textwidth}X@{}}
-    \toprule
-    Research direction & Representative papers & Main idea \\
-    \midrule
-    Price effects vs. income effects
-      & Herrendorf, Rogerson, and Valentinyi (2013, 2014)
-      & Compare CES price-effect models with nonhomothetic-preference models
-        in U.S. structural-transformation data. \\
-    Flexible nonhomothetic preferences
-      & Boppart (2014); Alder, Boppart, and M\"uller (2022);
-        Comin, Lashkari, and Mestieri (2021)
-      & Reintroduce income effects to explain Engel curves, falling agriculture,
-        rising services, and hump-shaped manufacturing. \\
-    Other supply-side mechanisms
-      & Acemoglu and Guerrieri (2008); Alvarez-Cuadrado et al. (2017, 2018)
-      & Emphasize capital deepening, sectoral capital intensity, and differences
-        in capital-labor substitution. \\
-    Quantitative and open-economy extensions
-      & Swiecki (2017); Uy, Yi, and Zhang (2013); Sposi (2019)
-      & Quantify competing mechanisms and study how trade and input-output
-        linkages shape structural change. \\
-    \bottomrule
-  \end{tabularx}
+      \vspace{0.07cm}
+      \begin{block}{Structural change in investment}
+        \textbf{Herrendorf, Rogerson, and Valentinyi (2021)} jointly study
+        structural change in consumption and investment, showing that investment
+        production also changes its sectoral composition over time.
+      \end{block}
+    \end{column}
+    \begin{column}{0.49\textwidth}
+      \begin{block}{Home production and gender allocation}
+        \textbf{Moro et al. (2017)} and \textbf{Ngai and Petrongolo (2017)}
+        connect home production, rising services, female labor supply, and gender
+        gaps to structural transformation.
+      \end{block}
+
+      \vspace{0.07cm}
+      \begin{block}{Open economy and input-output linkages}
+        \textbf{Uy, Yi, and Zhang (2013)} and \textbf{Sposi (2019)} show that
+        trade, comparative advantage, and sectoral linkages can reshape a
+        country's structural-transformation path.
+      \end{block}
+    \end{column}
+  \end{columns}
 \end{frame}
 
 \begin{frame}{Main Takeaways}
